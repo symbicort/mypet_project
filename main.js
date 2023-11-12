@@ -1,2 +1,2 @@
-var appElement = document.getElementById('app');
-appElement.appendChild(Button());
+// var appElement = document.getElementById('app');
+// appElement.appendChild(Button());

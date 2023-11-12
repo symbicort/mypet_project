@@ -5,13 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <script defer src="/components/post.js"></script>
+    <script defer src="/components/button.js"></script>
   </head>
   <body>
-    <div class="app">
+    <button-primary onClick="alertClick()">로그인하기</button-primary>
+
+    <list-post>
+      <h4 slot="title">글 제목</h4>
+      <p slot="content">글 내용</p>
+    </list-post>
+
+
+    <script>
+      function alertClick() {
+        console.log("클릭");
+      }
+
       
-      <h1>하이</h1>
-    </div>
-    <script src="/main.js"></script>
-    <script src="/components/button.js"></script>
+    </script>
   </body>
 </html>
