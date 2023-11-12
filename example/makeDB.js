@@ -1,68 +1,66 @@
 function makeDB(){
-    const request = indexedDB.open("myPetDB", 1);
+// 데이터베이스 열기 또는 생성
+const request = indexedDB.open("myPetDB", 1);
 
+    // 데이터베이스 열기 또는 생성 성공 시 실행되는 이벤트 핸들러
     request.onupgradeneeded = function(event) {
     const db = event.target.result;
 
-      // 카테고리 테이블 생성
-    const categoryStore = db.createObjectStore("categories", { keyPath: "id", autoIncrement: true });
+    // 회원 테이블 생성
+    const membersStore = db.createObjectStore("members", { keyPath: "id", autoIncrement: true });
+    membersStore.createIndex("nickname", "nickname", { unique: true });
+    membersStore.createIndex("email", "email", { unique: true });
+    membersStore.createIndex("phNum", "phNum", { unique: true });
+    membersStore.createIndex("pw", "pw", { unique: false });
+    
+    // 연락처와 비밀번호는 추가적인 필드로 저장할 수 있습니다.
 
-      // 글 테이블 생성
-    const postStore = db.createObjectStore("posts", { keyPath: "id", autoIncrement: true });
+    // 게시글 테이블 생성
+    const postsStore = db.createObjectStore("posts", { keyPath: "id", autoIncrement: true });
+    postsStore.createIndex("author", "author", { unique: false });
+    postsStore.createIndex("timestamp", "timestamp", { unique: false });
 
-      // 댓글 테이블 생성
-    const commentStore = db.createObjectStore("comments", { keyPath: "id", autoIncrement: true });
+    // 댓글 테이블 생성 (게시글 테이블과의 관계는 추가로 정의 가능)
+    const commentsStore = db.createObjectStore("comments", { keyPath: "id", autoIncrement: true });
+    commentsStore.createIndex("postID", "postID", { unique: false });
+    commentsStore.createIndex("content", "content", { unique: false });
 
-      // 카테고리 테이블에 인덱스 추가
-    categoryStore.createIndex("name", "name", { unique: true });
+};
+
+// 데이터베이스 열기 또는 생성 완료 시 실행되는 이벤트 핸들러
+    request.onsuccess = function(event) {
+    const db = event.target.result;
+    console.log("Database opened successfully");
+
+    // 이제 여기에서 데이터베이스를 사용할 수 있습니다.
+    };
+
+    // 데이터베이스 열기 또는 생성 실패 시 실행되는 이벤트 핸들러
+    request.onerror = function(event) {
+    console.error("Error opening database");
     };
 }
 
-// 모든 데이터베이스를 삭제하는 함수
-function deleteAllDatabases() {
-    // 데이터베이스 이름을 저장할 변수
-    let databaseNames;
 
-    // 모든 데이터베이스의 이름을 가져오는 함수
-    function getAllDatabaseNames() {
-        // 현재 페이지에서 사용 가능한 데이터베이스 이름들을 비동기적으로 가져오는 요청
-        const request = indexedDB.databases();
 
-        // 요청이 성공했을 때 실행되는 이벤트 핸들러
-        request.onsuccess = (event) => {
-            // 가져온 데이터베이스 이름들을 변수에 저장
-            databaseNames = event.target.result;
-            // 만약 데이터베이스가 하나도 없을 경우
-            if (!databaseNames || databaseNames.length === 0) {
-                console.log('No databases found.');
-            } else {
-                // 데이터베이스가 존재하면 각각의 데이터베이스를 삭제하는 함수 호출
-                databaseNames.forEach(deleteDatabase);
-            }
-        };
+// 데이터베이스를 삭제하는 함수
+function deleteDatabase() {
+    const dbName = "myPetDB";
+    const request = indexedDB.deleteDatabase(dbName);
 
-        // 요청이 실패했을 때 실행되는 이벤트 핸들러
-        request.onerror = (event) => {
-            console.error('Error getting database names:', event.target.error);
-        };
-    }
+    // 삭제 요청이 성공적으로 완료된 경우
+    request.onsuccess = function () {
+    console.log(`Database '${dbName}' deleted successfully.`);
+    };
 
-    // 데이터베이스를 삭제하는 함수
-    function deleteDatabase(databaseName) {
-        // 삭제 요청을 보내는 객체
-        const deleteRequest = indexedDB.deleteDatabase(databaseName.name);
+    // 삭제 요청 중 오류가 발생한 경우
+    request.onerror = function (event) {
+    console.error("Error deleting database:", event.target.error);
+    };
 
-        // 삭제 요청이 성공했을 때 실행되는 이벤트 핸들러
-        deleteRequest.onsuccess = () => {
-            console.log('Database deleted successfully:', databaseName.name);
-        };
-
-        // 삭제 요청이 실패했을 때 실행되는 이벤트 핸들러
-        deleteRequest.onerror = (event) => {
-            console.error('Error deleting database:', event.target.error);
-        };
-    }
-
-    // 데이터베이스 이름을 가져오고 모든 데이터베이스 삭제
-    getAllDatabaseNames();
+    // 삭제 요청이 진행 중인 경우
+    request.onblocked = function () {
+        console.warn("Deletion blocked; please close all connections to the database.");
+    };
 }
+

@@ -1,6 +1,6 @@
 // 회원가입 function
 function signIn() {
-    const nickName = document.querySelector('#nickname').value;
+    const user = document.querySelector('#user').value;
     const email = document.querySelector('#email').value;
     const phNum = document.querySelector('#phNum').value;
     const pw = document.querySelector('#pw').value;
@@ -9,7 +9,7 @@ function signIn() {
     let pattern = /\s/;
     let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!nickName || pattern.test(nickName) || nickName.length < 5 || nickName.length > 20) {
+    if (!user || pattern.test(user) || user.length < 5 || user.length > 20) {
         alert('닉네임을 5자 이상 20자 이하로 입력해주세요.\n(공백 입력 불가)');
     } else if (!emailRegex.test(email)) {
         alert('올바른 이메일 형식을 입력해주세요.\n(공백 사용 불가)');
@@ -20,71 +20,61 @@ function signIn() {
     } else if (pw !== pwcheck) {
         alert('비밀번호가 일치하지 않습니다.');
     } else {
-        alert('회원 가입이 완료되었습니다!');
-    }    
-    // IndexedDB 열기 또는 생성
-    const request = indexedDB.open("myPetDB", 1);
-
-    // 데이터베이스가 업그레이드되면 실행되는 이벤트 핸들러
-    request.onupgradeneeded = function (event) {
-        const db = event.target.result;
-        const objectStore = db.createObjectStore("users", { keyPath: "id", autoIncrement: true });
-        objectStore.createIndex("nickName", "nickName", { unique: true });
-        objectStore.createIndex("email", "email", { unique: true });
-    };
-
-    // 데이터베이스 열기가 성공하면 실행되는 이벤트 핸들러
+        alert('회원 가입이 완료되었습니다!');  
+    const dbName = "myPetDB";
+    const dbVersion = 1;
+    
+    // 데이터베이스 열기 또는 생성
+    const request = indexedDB.open(dbName, dbVersion);
+    
+    // 열기 또는 생성 성공 시
     request.onsuccess = function (event) {
         const db = event.target.result;
-
-        // 중복 체크
-        const transaction = db.transaction(["users"], "readonly");
-        const objectStore = transaction.objectStore("users");
-        const nickNameIndex = objectStore.index("nickName");
-
-        const request = nickNameIndex.get(nickName);
-
-        request.onsuccess = function (event) {
-            const existingUser = event.target.result;
-
-            if (existingUser) {
-                alert('이미 존재하는 닉네임입니다.');
-            } else {
-                // 사용자 정보 저장
-                const transaction = db.transaction(["users"], "readwrite");
-                const objectStore = transaction.objectStore("users");
-
-                objectStore.add({
-                    nickName: nickName,
-                    email: email,
-                    phNum: phNum,
-                    pw: pw
-                });
-
-                alert('회원 가입이 완료되었습니다!');
-            }
-        }
-
-
     
-        // // userInfo 키에 닉네임을 포함하여 로컬 스토리지에 저장
-        // localStorage.setItem(`userInfo(${nickName})`, JSON.stringify({
-        //     nickName: nickName,
-        //     email: email,
-        //     phNum: phNum,
-        //     pw: btoa(pw),
-        //     isLogin: false
-        // }));
+        // 트랜잭션 시작 (읽기/쓰기 권한 필요)
+        const transaction = db.transaction(["myObjectStore"], "readwrite");
+        
+        // 객체 저장소(테이블) 열기
+        const objectStore = transaction.objectStore("myObjectStore");
+        
+        // 추가할 데이터
+        const newData = {
+        id: "someKey",
+        name: "Fluffy",
+        type: "Cat",
+        age: 3
+        };
 
+        // 데이터 추가 (add() 메서드 사용)
+        const addRequest = objectStore.add(newData);
+
+        addRequest.onsuccess = function (event) {
+        console.log("Data added successfully");
+        };
+
+        addRequest.onerror = function (event) {
+        console.error("Error adding data:", event.target.error);
+        };
+
+        // 트랜잭션 완료 시
+        transaction.oncomplete = function () {
+        console.log("Transaction completed");
+        };
+        };
+
+        // 열기 또는 생성 실패 시
+        request.onerror = function (event) {
+        console.error("Error opening database:", event.target.error);
+        };
         // 페이지 이동
         window.location.href = 'index.html';
-    }
-}
+}}
+
 
 
 
 function dupCheck(){
-    const nickName = document.querySelector('#nickname').value;
+    const user = document.querySelector('#user').value;
     
     // // 로컬 스토리지에서 데이터 가져오기
     // let userInfoString = localStorage.getItem('userInfo(12345)');
@@ -92,11 +82,11 @@ function dupCheck(){
     // // JSON 문자열을 JavaScript 객체로 파싱
     // let userInfoObject = JSON.parse(userInfoString);
 
-    // // nickName 값을 가져오기
-    // let nickNameValue = userInfoObject.nickName;
+    // // user 값을 가져오기
+    // let userValue = userInfoObject.user;
 
     // // 결과 확인
-    // console.log("nickName 값:", nickNameValue);
+    // console.log("user 값:", userValue);
 
     // 로컬 스토리지의 모든 키를 가져오기
     for (let i = 0; i < localStorage.length; i++) {
@@ -105,7 +95,7 @@ function dupCheck(){
         // 괄호 안의 문자열 추출
         let extractedString = key.match(/\((.*?)\)/);
 
-        if(nickName === extractedString){
+        if(user === extractedString){
             console.alert()
         }
 

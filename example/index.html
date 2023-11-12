@@ -6,8 +6,6 @@
     <title>Document</title>
     <script src="makeDB.js"></script>
     <script>
-        
-        // makeDB();
         // 버튼 클릭 시 실행될 함수 정의
         function moveToSignIn() {        
             // 다른 페이지로 이동
@@ -19,14 +17,10 @@
     </script>
 </head>
 <body>
-    <!-- <button onclick="deleteAllDatabases()">DB 삭제</button>
-    <button onclick="()">DB 삭제</button> -->
+    <button onclick="deleteDatabase()">DB 삭제</button>
+    <button onclick="makeDB()">DB 생성</button>
     <button onclick="moveToSignIn()">회원가입</button>
     <button onclick="moveTologin()">로그인</button>
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        deleteAllDatabases();
-    });
-    </script>
+
 </body>
 </html>
