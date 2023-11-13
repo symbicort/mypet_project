@@ -1,4 +1,4 @@
-class Button extends HTMLElement {
+class ButtonSecondary extends HTMLElement {
   constructor() {
     super();
     const shadow = this.attachShadow({ mode: "open" });
@@ -7,7 +7,7 @@ class Button extends HTMLElement {
     this.template.innerHTML = `
       <style>
         button {
-          color: white;
+          color: #fff;
           padding: 12px 20px;
           font-family: sans-serif;
           font-weight: 700;
@@ -18,16 +18,16 @@ class Button extends HTMLElement {
           cursor: pointer;
           transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
           user-select: none;
-          background-color: var(--color-sky-500, #0EA5E9);
+          background-color: var(--gray-500, #6B7280);
           border: none;
         }
         button:hover {
-          background-color: var(--sky-400, #38BDF8);
+          background-color: var(--color-gray-400, #f0f9ff);
           transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
           transform: scale(1.03);
         }
         button:active {
-          background-color: var(--sky-600, #0284C7);
+          background-color: var(--color-gray-600, #e0f2fe);
           transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
           transform: scale(1);
         }
@@ -45,4 +45,4 @@ class Button extends HTMLElement {
   }
 }
 
-customElements.define("button-primary", Button);
+customElements.define("button-secondary", ButtonSecondary);

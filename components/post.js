@@ -52,43 +52,103 @@ table {
 }
 
 
-        * {
-          font-family: sans-serif;
-        }
+        
 
-        div {
-          display: block;
-          padding: 20px;
+        div.container {
+          display: flex;
+          flex-direction: column;
+          padding: 32px;
+          gap: 20px;
           background-color: #ffffff;
           border: 1px solid #c1c1c1;
-          border-radius: 8px;
+          border-radius: 4px;
+          justify-content: start;
+          margin-bottom: 16px;
+          word-break: keep-all;
+          transition: all 0.5s;
+        }
+
+        div.container:hover {
+          background-color: #f5f5f5;
+          transition: all 0.5s;
+        }
+
+        div.container:active {
+          background-color: #eaeaea;
+          transition: all 0.5s;
+        }
+
+        div.content {
+          display: flex;
+          align-items: center;
+          gap: 20px;
         }
 
         h4 {
           font-size: 1.2rem;
           font-weight: bold;
-          margin-bottom: 12px;
           color: #303030;
+        }
+
+        .writer {
+          width: 100%;
+          display: flex;
+          align-items: center;
+        }
+        
+        ::slotted(p) {
+          width: 100%;
+          color: #797979;
+          font-weight: 500;
+          line-height: 24px;
         }
         
         p {
-          color: #797979
+          width: 100%;
+          line-height: 1.5;
         }
+
+        slot[name='time'] {
+          font-size: 0.8rem;
+          text-align: right;
+        }
+
+
+
+        i {
+          width: 16px;
+        }
+
+        @media (max-width: 480px) {
+          div.content {
+            flex-direction: column;
+          }
+        }
+
+        
       </style>
 
-      <div>
+      <div class="container">
         <h4>
           <slot name="title"></slot>
         </h4>
         <p>
           <slot name="content"></slot>
         </p>
-        <slot name="writer"></slot>
-        <slot name="time"></slot>
-        <slot name="image"></slot>
-        <slot name="comment"></slot>
-        <slot name="like"></slot>
-        <slot name="dislike"></slot>
+        <div class="content">
+          <div class="writer">
+            <p>
+              <slot name="writer"></slot>
+            </p>
+          </div>
+          <p>
+            <slot name="time"></slot>
+          </p>
+          <slot name="image"></slot>
+          <slot name="comment"></slot>
+          <slot name="like"></slot>
+          <slot name="dislike"></slot>
+        </div>
       </div>
     `;
 

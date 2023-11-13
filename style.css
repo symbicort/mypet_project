@@ -1,3 +1,7 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
+
+
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -22,6 +26,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+  -webkit-font-smoothing: antialiased;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -73,10 +78,34 @@ table {
   --color-sky-800: #075985;
   --color-sky-900: #0c4a6e;
   --color-sky-950: #082f49;
+
+  font-family: 'Pretendard Variable', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-focus-ring-color: var(--color-sky-500);
+  
+  
+}
+
+.thing:focus {
+  outline: 0;
+  border: 2px solid var(--color-sky-500);
+  outline: 2px solid var(--color-sky-500)
 }
 
 body {
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 24px;
 }
 
