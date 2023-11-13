@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="makeDB.js"></script>
+    <script src="isLogin.js"></script>
     <script>
         // 버튼 클릭 시 실행될 함수 정의
         function moveToSignIn() {        
@@ -18,7 +19,7 @@
             window.location.href = 'petCategory.html';
         }
         function moveToCommutity(){
-            window.location.href = 'community.html';
+            window.location.href = 'board.html';
         }
     </script>
 </head>
@@ -28,8 +29,10 @@
     <hr>
     <button onclick="makeDB()">DB 생성</button>
     <hr>
-    <button onclick="moveToSignIn()">회원가입</button>
-    <button onclick="moveTologin()">로그인</button>
+    <div id="nicknameDisplay">
+        <button onclick="moveToSignIn()" id="signupBtn">회원가입</button>
+        <button onclick="moveTologin()" id="loginBtn">로그인</button>
+    </div>
     <hr>
     <button onclick="moveToPetCategory()">펫카테고리 페이지 이동</button>
     <hr>
