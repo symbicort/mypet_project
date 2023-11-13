@@ -14,13 +14,27 @@
         function moveTologin() {
             window.location.href = 'login.html';
         }
+        function moveToPetCategory(){
+            window.location.href = 'petCategory.html';
+        }
+        function moveToCommutity(){
+            window.location.href = 'community.html';
+        }
     </script>
 </head>
 <body>
+
     <button onclick="deleteDatabase()">DB 삭제</button>
+    <hr>
     <button onclick="makeDB()">DB 생성</button>
+    <hr>
     <button onclick="moveToSignIn()">회원가입</button>
     <button onclick="moveTologin()">로그인</button>
+    <hr>
+    <button onclick="moveToPetCategory()">펫카테고리 페이지 이동</button>
+    <hr>
+    <button onclick="moveToCommutity()">게시판으로 이동</button>
+    
 
 </body>
 </html>

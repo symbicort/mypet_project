@@ -7,24 +7,36 @@ const request = indexedDB.open("myPetDB", 1);
     const db = event.target.result;
 
     // 회원 테이블 생성
-    const membersStore = db.createObjectStore("members", { keyPath: "id", autoIncrement: true });
-    membersStore.createIndex("nickname", "nickname", { unique: true });
-    membersStore.createIndex("email", "email", { unique: true });
-    membersStore.createIndex("phNum", "phNum", { unique: true });
-    membersStore.createIndex("pw", "pw", { unique: false });
-    
+    const userStore = db.createObjectStore("user", { keyPath: "id", autoIncrement: true });
+    userStore.createIndex("nickname", "nickname", { unique: true });
+    userStore.createIndex("email", "email", { unique: true });
+    userStore.createIndex("phNum", "phNum", { unique: false });
+    userStore.createIndex("pw", "pw", { unique: false });
+    userStore.createIndex("isLogin", "isLogin", { unique: false });
+
     // 연락처와 비밀번호는 추가적인 필드로 저장할 수 있습니다.
 
     // 게시글 테이블 생성
-    const postsStore = db.createObjectStore("posts", { keyPath: "id", autoIncrement: true });
+    const postsStore = db.createObjectStore("posts", { keyPath: "postId", autoIncrement: true });
     postsStore.createIndex("author", "author", { unique: false });
+    postsStore.createIndex("title", "title", { unique: false });
+    postsStore.createIndex("content", "content", { unique: false });
     postsStore.createIndex("timestamp", "timestamp", { unique: false });
 
     // 댓글 테이블 생성 (게시글 테이블과의 관계는 추가로 정의 가능)
-    const commentsStore = db.createObjectStore("comments", { keyPath: "id", autoIncrement: true });
-    commentsStore.createIndex("postID", "postID", { unique: false });
-    commentsStore.createIndex("content", "content", { unique: false });
+    const commentStore = db.createObjectStore("comments", { keyPath: "commentId", autoIncrement: true });
+    commentStore.createIndex("postId", "postId", { unique: false }); // 외래 키
+    commentStore.createIndex("content", "content", { unique: false });
+    commentStore.createIndex("author", "author", { unique: false });
+    commentStore.createIndex("timestamp", "timestamp", { unique: false });
+    
 
+    // 견종 카테고리 테이블 생성(추가 정의 X)
+    const petCategoryStore = db.createObjectStore("petCategory", { keyPath: "id", autoIncrement: true });
+    petCategoryStore.createIndex("petBreed", "petBreed", { unique: false });
+    petCategoryStore.createIndex("content1", "content1", { unique: false });
+    petCategoryStore.createIndex("content2", "content2", { unique: false });
+    petCategoryStore.createIndex("image", "image", { unique: false });
 };
 
 // 데이터베이스 열기 또는 생성 완료 시 실행되는 이벤트 핸들러
