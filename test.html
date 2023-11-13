@@ -13,6 +13,7 @@
     <script defer src="/components/text-field.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css" />
     <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.1/feather.min.js" integrity="sha512-4lykFR6C2W55I60sYddEGjieC2fU79R7GUtaqr3DzmNbo0vSaO1MfUjMoTFYYuedjfEix6uV9jVTtRCSBU/Xiw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
 
       const isLoggedIn = true;
@@ -28,7 +29,7 @@
   <body>
     <div class="container">
 
-      <div class="nav">
+      <div id="nav">
 
       </div>
 
@@ -85,12 +86,12 @@
 
     <script>
 
-      window.onload = function() {
-        if (isLoggedIn == true) {
-          let nav = document.querySelector('.nav')
-          document.createElement('nav-bar')
-          nav.appendChild()
-        }
+      const navContainer = document.getElementById('nav')
+
+      if (isLoggedIn) {
+        navContainer.innerHTML = `<nav-bar loggedIn></nav-bar>`
+      } else {
+        navContainer.innerHTML = `<nav-bar></nav-bar>`
       }
         
       

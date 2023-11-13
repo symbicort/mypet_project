@@ -7,9 +7,9 @@ class Navbar extends HTMLElement {
     this.template.innerHTML = `
       <style>
         :host([loggedIn]) {
-          width: 100%;
-          color: red;
-          background-color: red;
+          .menu {
+            display: flex;
+          }
         }
 
         ul {
@@ -63,7 +63,7 @@ class Navbar extends HTMLElement {
         }
 
         .menu {
-          display: flex;
+          display: none;
         }
 
         @media (max-width: 480px) {
