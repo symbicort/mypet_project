@@ -4,8 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="makeDB.js"></script>
+    <script src="isLogin.js"></script>
+    <script>
+        // 버튼 클릭 시 실행될 함수 정의
+        function moveToSignIn() {        
+            // 다른 페이지로 이동
+            window.location.href = 'signIn.html';
+        }
+        function moveTologin() {
+            window.location.href = 'login.html';
+        }
+        function moveToPetCategory(){
+            window.location.href = 'petCategory.html';
+        }
+        function moveToCommutity(){
+            window.location.href = 'board.html';
+        }
+    </script>
 </head>
 <body>
-    <button></button>
+
+    <button onclick="deleteDatabase()">DB 삭제</button>
+    <hr>
+    <button onclick="makeDB()">DB 생성</button>
+    <hr>
+    <div id="nicknameDisplay">
+        <button onclick="moveToSignIn()" id="signupBtn">회원가입</button>
+        <button onclick="moveTologin()" id="loginBtn">로그인</button>
+    </div>
+    <hr>
+    <button onclick="moveToPetCategory()">펫카테고리 페이지 이동</button>
+    <hr>
+    <button onclick="moveToCommutity()">게시판으로 이동</button>
+    
+
 </body>
 </html>
