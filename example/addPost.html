@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글 작성</title>
+    <script src="addPost.js"></script>
+</head>
+<body>
+
+<h1>글 작성</h1>
+
+<!-- 글 작성 폼 -->
+<form id="post-form">
+    <label for="author">제목:</label>
+    <input type="text" id="title" required>
+    <br><hr>
+    <label for="content">내용:</label>
+    <textarea id="content" required></textarea>
+    <br><hr>
+    <button type="button" onclick="addPost()">글 작성</button>
+</form>
+
+<!-- 뒤로 가기 버튼 -->
+<a href="board.html">뒤로 가기</a>
+
+
+</body>
+</html>
