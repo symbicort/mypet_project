@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="makeDB.js"></script>
-    <script src="isLogin.js"></script>
+    <script src="../js/makeDB.js"></script>
+    <script src="../js/isLogin.js"></script>
+    <script src="../js/inputData.js"></script>
     <script>
         // 버튼 클릭 시 실행될 함수 정의
         function moveToSignIn() {        
@@ -16,7 +17,7 @@
             window.location.href = 'login.html';
         }
         function moveToPetCategory(){
-            window.location.href = 'petCategory.html';
+            window.location.href = 'dogtype.html';
         }
         function moveToCommutity(){
             window.location.href = 'board.html';
@@ -37,6 +38,7 @@
     <button onclick="moveToPetCategory()">펫카테고리 페이지 이동</button>
     <hr>
     <button onclick="moveToCommutity()">게시판으로 이동</button>
+    <button onclick="inputPetData()">펫 카테고리 정보 DB에 input</button>
     
 
 </body>
