@@ -17,9 +17,12 @@ class Post2 extends HTMLElement {
     background-color: #fff;
     width: 100%;
     gap: 8px;
-    padding: 24px;
+    padding: 32px;
     border-radius: 4px;
-    border: 1.5px solid var(--color-gray-200)
+    border: 1.5px solid var(--color-gray-200);
+    margin-bottom: 12px;
+    box-sizing: border-box;
+    cursor: pointer;
   }
 
   h2 {
@@ -47,24 +50,21 @@ class Post2 extends HTMLElement {
     const contents = document.createElement("p");
     const author = document.createElement("p");
     const timestamp = document.createElement("p");
-    const titleSlot = document.createElement("slot");
 
     style.innerHTML = Post2.css;
     contents.classList.add("contents");
     author.classList.add("author");
     timestamp.classList.add("timestamp");
-    titleSlot.name = "titleSlot";
 
 
-    // title.textContent ='글 제목입니다'
-    // contents.textContent ='국회는 정부의 동의없이 정부가 제출한 지출예산 각항의 금액을 증가하거나 새 비목을 설치할 수 없다. 모든 국민은 능력에 따라 균등하게 교육을 받을 권리를 가진다.'
-    // author.textContent ='작성자'
-    // timestamp.textContent ='2023년 10월 23일 오후 3시 12분'
-
-    container.append(title, contents, author, timestamp, titleSlot)
+    container.append(title, contents, author, timestamp)
     this.shadowRoot.append(style, container);
+    
 
-    title.textContent = this.getAttribute('data-title')
+    title.textContent = this.getAttribute("data-title");
+    contents.textContent = this.getAttribute("data-content");
+    author.textContent = this.getAttribute("data-author");
+    timestamp.textContent = this.getAttribute("data-timestamp");
     
 
   }

@@ -15,8 +15,7 @@ class TextField extends HTMLElement {
     display: flex;
     flex-direction: column;
     max-width: 400px;
-    justify-content: center;
-    margin-bottom: 20px;
+    margin: 10px auto;
   }
 
   p {
@@ -32,6 +31,11 @@ class TextField extends HTMLElement {
     border: 1.5px solid var(--color-gray-200);
     box-sizing: border-box;
     width: 100%;
+  }
+
+  ::-webkit-input-placeholder {
+    font-family: 'Pretendard Variable', sans-serif;
+    color: var(--color-gray-300);
   }
 
   
@@ -53,30 +57,24 @@ class TextField extends HTMLElement {
 
     style.innerHTML = TextField.css;
     container.classList.add("container");
-    // contents.classList.add("contents");
-    // author.classList.add("author");
-    // timestamp.classList.add("timestamp");
     titleSlot.name = "titleSlot";
     
-
-
-
-    // title.textContent ='글 제목입니다'
-    // contents.textContent ='국회는 정부의 동의없이 정부가 제출한 지출예산 각항의 금액을 증가하거나 새 비목을 설치할 수 없다. 모든 국민은 능력에 따라 균등하게 교육을 받을 권리를 가진다.'
-    // author.textContent ='작성자'
-    // timestamp.textContent ='2023년 10월 23일 오후 3시 12분'
-
     container.append(label, input, placeholder, titleSlot)
     this.shadowRoot.append(style, container);
 
-    // title.textContent = this.getAttribute('data-title')
     label.textContent = this.getAttribute('data-label')
     input.placeholder = this.getAttribute('data-placeholder')
     
+    input.addEventListener('input', (event) => {
+      this.value = event.target.value;
+    });
+
+    
 
   }
+  getValue() {
+    return this.value;
+  }
 }
-
-
 
 customElements.define("text-field", TextField);
