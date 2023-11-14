@@ -9,32 +9,90 @@
     <script defer src="/components/button-ghost.js"></script>
     <script defer src="/components/navbar.js"></script>
     <script defer src="/components/post.js"></script>
+    <script defer src="/components/textfield.js"></script>
+    <script defer src="/components/post2.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css" />
     <link rel="stylesheet" href="./style.css">
+
+    <script>
+
+      const object1 = [
+        {
+        "title": "제목1",
+        "content": "내용1",
+        "author": "작성자1",
+        "timestamp": "시간1"
+        },
+        {
+        "title": "제목2",
+        "content": "내용2",
+        "author": "작성자2",
+        "timestamp": "시간2"
+        },
+        {
+        "title": "제목3",
+        "content": "내용3",
+        "author": "작성자3",
+        "timestamp": "시간3"
+        },
+      ]
+
+      console.log('object1', object1)
+
+
+    </script>
   </head>
   <body>
     <nav-bar> </nav-bar>
 
     <div class="container">
-      <list-post>
-        
-          <h4 slot="title"><a href="/test.html">강아지 입니다</a></h4>
-          <p slot="content">국회는 정부의 동의없이 정부가 제출한 지출예산 각항의 금액을 증가하거나 새 비목을 설치할 수 없다. 모든 국민은 능력에 따라 균등하게 교육을 받을 권리를 가진다.</p>
-            <p slot="writer">개껌조아</p>
-          <p slot="time"></i>2023년 11월 21일 오후 2시 31분</p>
-        
-      </list-post>
-      <list-post>
-        <h4 slot="title">강아지 입니다</h4>
-        <p slot="content">국회는 정부의 동의없이 정부가 제출한 지출예산 각항의 금액을 증가하거나 새 비목을 설치할 수 없다. 모든 국민은 능력에 따라 균등하게 교육을 받을 권리를 가진다.</p>
-          <p slot="writer">개껌조아</p>
-        <p slot="time"></i>2023년 11월 21일 오후 2시 31분</p>
-      </list-post><list-post>
-        <h4 slot="title">강아지 입니다</h4>
-        <p slot="content">국회는 정부의 동의없이 정부가 제출한 지출예산 각항의 금액을 증가하거나 새 비목을 설치할 수 없다. 모든 국민은 능력에 따라 균등하게 교육을 받을 권리를 가진다.</p>
-          <p slot="writer">개껌조아</p>
-        <p slot="time"></i>2023년 11월 21일 오후 2시 31분</p>
-      </list-post>
+
+
+      <div class="post-container"></div>
+
+
+
+      <form action="submit">
+        <text-field data-label="닉네임" data-placeholder="닉네임을 입력하세요" onkeypress="print()"></text-field>
+        <text-field data-label="이메일" data-placeholder="id@email.com"></text-field>
+        <text-field data-label="연락처" data-placeholder="010-0000-0000"></text-field>
+        <text-field data-label="비밀번호" data-placeholder="비밀번호를 입력하세요"></text-field>
+        <text-field data-label="비밀번호 확인" data-placeholder="비밀번호를 입력하세요"></text-field>
+        <button type="submit">제출</button>
+      </form>
+      
+    
     </div>
+
+
+
+    <script>
+
+      function print() {
+        console.log('hi')
+      }
+
+      const postContainer = document.querySelector('.post-container')
+      
+      
+      // for (i = 0; i < object1.length; i++) {
+
+      //   const posts = document.createElement('posts-2')
+      //   console.log(posts)
+      //   // const title1 = document.createElement('h2')
+      //   const title1 = document.querySelector('h2')
+      
+      //   posts.classList.add('post')
+      //   posts.style.marginBottom = '20px'
+      //   title1.setAttribute('slot', 'titleSlot')
+
+      //   title1.innerHTML = `${object1[i].title}`
+      //   posts.append(title1)
+      //   postContainer.append(posts)
+
+      // }
+
+
+    </script>
   </body>
 </html>

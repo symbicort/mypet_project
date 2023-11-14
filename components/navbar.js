@@ -1,32 +1,42 @@
 class Navbar extends HTMLElement {
   static css = `
     :host {
-      display: flex;
-      width: 100%;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background-color: white;
+      display: block;
+      // display: flex;
+      // position: fixed;
+      // top: 0;
+      // left: 0;
+      // right: 0;
     }
 
     header {
       display: flex;
-      width: 100%;
+      position: fixed;
+      // width: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
       justify-content: space-between;
       padding: 8px 12px;
       align-items: center;
       border-bottom: 1px solid var(--color-gray-200);
+      background-color: white;
+
     }
 
     .logo img {
 
     }
 
+    .logo {
+      width: fit-content;
+    }
+
     .menu {
       display: flex;
       gap: 24px;
       align-items: center;
+      width: fit-content;
     }
 
     .btn-group {
@@ -99,7 +109,7 @@ class Navbar extends HTMLElement {
   `;
 
   constructor() {
-    super();
+    super()
 
     this.attachShadow({ mode: "open" });
 
