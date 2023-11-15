@@ -22,11 +22,6 @@ a {
   margin-bottom: 60px;
 }
 
-.board_title strong {
-  font-size: 40px;
-  font-weight: bolder;
-}
-
 .pageTitle {
   display: flex;
   justify-content: space-between;
@@ -44,32 +39,26 @@ a {
   display: inline-block;
 }
 
-.board_list > div > a > p{
-  color: #999;
-  margin: 10px 0;
-}
 .board_list > div > a > h4{
-  font-weight: 900;
+  font-weight: 700;
   font-size: 19px;
+  color: var(--color-gray-700)
+}
+
+.board_list > div > a > p{
+  color: var(--color-gray-500);
+  margin: 10px 0;
 }
 
 .date{
   color: #717171;
 }
+
 .writer{
   margin-right: 20px;
   color: #717171;
 }
 
-button{ /*글쓰기 버튼*/
-  background-color: skyblue;
-  color: white;
-  font-size: 20px;
-  border:none;
-  border-radius: 5px;
-  padding: 10px;
-  cursor: pointer;
-}
 
 .board_page {
   text-align: center;
