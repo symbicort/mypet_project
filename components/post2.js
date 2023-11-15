@@ -27,12 +27,13 @@ class Post2 extends HTMLElement {
 
   h2 {
     line-height: 1.5;
-    color: #333;
+    font-size: 1.4rem;
+    color: var(--color-gray-700);
     margin-bottom: 8px;
   }
 
   p {
-    color: #777;
+    color: var(--color-gray-500);
     line-height: 1.5;
     word-break: keep-all;
   }
@@ -42,7 +43,6 @@ class Post2 extends HTMLElement {
     super()
 
     this.attachShadow({ mode: "open" });
-    console.log('post shadow attached')
 
     const style = document.createElement("style");
     const container = document.createElement("div");

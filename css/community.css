@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul, li{
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.board_wrap {
+  width: 100%;
+  /* margin: 100px auto; */
+  /* display: inline-block; */
+}
+
+.board_title {
+  margin-bottom: 60px;
+}
+
+.board_title strong {
+  font-size: 40px;
+  font-weight: bolder;
+}
+
+.pageTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.board_list > div{
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 30px;
+  padding-top: 30px;
+
+}
+.board_list > div > a > div{
+  display: inline-block;
+}
+
+.board_list > div > a > p{
+  color: #999;
+  margin: 10px 0;
+}
+.board_list > div > a > h4{
+  font-weight: 900;
+  font-size: 19px;
+}
+
+.date{
+  color: #717171;
+}
+.writer{
+  margin-right: 20px;
+  color: #717171;
+}
+
+button{ /*글쓰기 버튼*/
+  background-color: skyblue;
+  color: white;
+  font-size: 20px;
+  border:none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.board_page {
+  text-align: center;
+  margin-top: 60px;
+  
+}
+
+.board_page a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  line-height: 183%;
+}
+.board_page a.num.on{
+  border: 2px solid 999;
+  border-radius: 50%;
+  background-color: skyblue;
+  color: white;
+}

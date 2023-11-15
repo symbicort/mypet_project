@@ -1,0 +1,108 @@
+img.menuIcon {
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  right: 40px;
+  top: 25px;
+}
+
+
+#pressIcon {
+  height: 90px;
+  width: 90px;
+}
+
+.dogLibrary {
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: visible;
+  -ms-overflow-style: none; /* 스크롤바 안보이게 IE and Edge */
+  scrollbar-width: none; /* 스크롤바 안보이게 Firefox */
+}
+
+.dogLibrary::-webkit-scrollbar {
+  display: none;
+}
+
+
+.dogLibraryLayout {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.sectionTitle {
+  font-size: 1.6rem;
+  font-weight: bolder;
+  margin-top: 80px;
+  margin-bottom: 32px;
+}
+
+.showDogImgages {
+  display: flex;
+  gap: 20px;
+  overflow-y: visible;
+  
+}
+.showDogImgages::-webkit-scrollbar {
+  display: none; /* 스크롤바 안보이게 Chrome, Safari, Opera*/
+}
+
+.dogImage {
+  width: 300px;
+}
+
+.dogName {
+  font-weight: 500;
+  text-align: center;
+  margin-top: 16px;
+  color: var(--color-gray-500)
+}
+
+.rightArrow {
+  display: block;
+}
+
+.productAd {
+  display: flex;
+  gap: 32px;
+  width: 100%;
+}
+
+.productAd img {
+  height: 100%;
+}
+
+.productAdText {
+  display: flex;
+  flex-direction: column;
+}
+
+.productAd h2 {
+  font-size: 20px;
+  font-weight: bolder;
+  margin-bottom: 20px;
+}
+
+
+.productAd p {
+  line-height: 1.5;
+}
+
+@media (max-width: 800px) {
+  .productAd {
+    flex-direction: column;
+  }
+
+  .dogImage {
+    width: 120px;
+  }
+
+  .rightArrow {
+    display: none;
+  }
+}
+
+
