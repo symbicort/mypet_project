@@ -26,10 +26,6 @@
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="/javascript/community.js"></script>
     <script>
-      inputPetData()
-      makeDB()
-    </script>
-    <script>
       const object1 = [
         {
           id: 0,
@@ -65,7 +61,11 @@
         <div class="pageTitle">
           <h1>자유 커뮤니티
           </h1>
+        </div>
+        <div class="btn-group" style="display: flex; gap: 8px;">
           <custom-button data-type="primary" data-label="글쓰기" onclick="write()"></custom-button>
+          <custom-button data-type="secondary" data-label="DB생성" onclick="makeDB()"></custom-button>
+          <custom-button data-type="secondary" data-label="DB삭제" onclick="deleteDatabase()"></custom-button>
         </div>
         <div class="board_list_wrap">
           <div class="board_list">
