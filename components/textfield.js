@@ -46,7 +46,6 @@ class TextField extends HTMLElement {
     super()
 
     this.attachShadow({ mode: "open" });
-    console.log('textfield shadow attached')
 
     const style = document.createElement("style");
     const container = document.createElement("div");
