@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
+        integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
+    <script src="js/doctype_copy.js"></script>
+    <style>
+        header {
+            background-color: bisque;
+            width: 90vw;
+            height: 100px;
+            z-index: 10;
+            position: absolute;
+        }
+
+        img.menuIcon {
+            position: absolute;
+            height: 60px;
+            width: 60px;
+            right: 40px;
+            top: 25px;
+        }
+
+        body {
+            height: 3000px;
+            display: flex;
+            justify-content: center;
+            align-items: column;
+        }
+
+        div.mainContent {
+            width: 1280px;
+            position: absolute;
+            top: 150px;
+            background-color: #dfdfdf;
+        }
+
+        img.findFamilly {
+            width: 1280px;
+        }
+
+        #dogImgae {
+            /*검색결과 이미지를 제외한 견종 이미지들*/
+            width: 260px;
+            height: 200px;
+            margin-right: 13px;
+        }
+
+        #pressIcon {
+            height: 90px;
+            width: 90px;
+        }
+
+        .dogLibrary {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .showDogImgages {
+            display: flex;
+            width: 1079px;
+            overflow-x: scroll;
+            -ms-overflow-style: none;
+            /* 스크롤바 안보이게 IE and Edge */
+            scrollbar-width: none;
+            /* 스크롤바 안보이게 Firefox */
+
+        }
+
+        .showDogImgages::-webkit-scrollbar {
+            display: none;
+            /* 스크롤바 안보이게 Chrome, Safari, Opera*/
+        }
+
+        .productAd {
+            display: flex;
+        }
+        /* .dogTypePage {
+            display: none;
+        } */
+    </style>
+</head>
+
+<body>
+    <!--<object data="dogtype.html" type="text/html" class="dogTypePage"></object>-->
+    <header>
+        <!--임시로 작성해둠-->
+        <h1>임시 헤더</h1>
+        <!--헤더의 구성 페이지 로고 & 검색챙 & 로그인 & 회원가입 & 메뉴버튼 (누르면 오른쪽에서 메뉴바가 나타남)-->
+        <img class="menuIcon" id="menuPress" src="./menuIcon.png">
+        <div>
+            <input type="text" class="secrchMain" value="비글">
+            <input type="button" class="secrchPress" onclick="callDogTypePage(event)" value="검색">
+        </div>
+    </header>
+    <div class="mainContent">
+        <!-- 헤더가 아닌 나머지 -->
+        <div class="findingDog">
+            <!-- 메인 이미지 -->
+            <img class="findFamilly" id="mainImage" src="./mainImg.png">
+        </div>
+        <div class="dogLibraryLayout">
+            <!-- 견종검색 + 더보기  -->
+            <p>견종백과</p>
+            <div class="dogLibrary">
+                <div class="leftArrow">
+                    <img class="moreIconLeft" id="pressIcon" onclick="makeScrollL(event)" src="./moreIcon_L.png"
+                        style="visibility: hidden;">
+                </div>
+                <div class="showDogImgages">
+                    <!--이미지를 누르면 견종설명 페이지로 이동하게-->
+                    <!--이것도 DB에서 받아오게 나중에 수정-->
+                    <div class="showDogImgages1" onclick="loadDogTypePage(event)">
+                        <img src="https://thumb.photo-ac.com/50/508b85e6e79d8b8dafd12ea40b1af733_t.jpeg" id="dogImgae">
+                        <div class="showDogName1" id="dogname">요크셔 테리어</div>
+                    </div>
+                    <div class="showDogImgages2" onclick="loadDogTypePage(event)">
+                        <img src="https://mblogthumb-phinf.pstatic.net/MjAxOTA4MjlfNCAg/MDAxNTY3MDc5NzkxNzc5.KY9AtMKkpn4TheXmkdR2RPfjkYx_XahBlv3ZdAnl4y8g.u8pjzBsBYLRcy6tqrNEHxxJlAeQrSKQIT1CwhULHDfAg.PNG.vet6390/%EB%B9%84%EA%B8%80%EC%9D%98_%ED%8A%B9%EC%A7%95.PNG?type=w800"
+                            id="dogImgae">
+                        <div class="showDogName2" id="dogname">비글</div>
+                    </div>
+                    <div class="showDogImgages3" onclick="loadDogTypePage(event)">
+                        <img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmekUd%2FbtrSDFbbA8R%2Fq3a2LlPKIsEPlZOPsirK31%2Fimg.png"
+                            id="dogImgae">
+                        <div class="showDogName3" id="dogname">시츄</div>
+                    </div>
+                    <div class="showDogImgages4" onclick="loadDogTypePage(event)">
+                        <img src="https://img.famtimes.co.kr/resources/2019/02/15/yE5YxHsTC4HAblpe.jpg" id="dogImgae">
+                        <div class="showDogName4" id="dogname">치와와</div>
+                    </div>
+                    <div class="showDogImgages5" onclick="loadDogTypePage(event)">
+                        <img src="https://img.freepik.com/free-photo/view-of-cute-dog-enjoying-time-in-nature-at-the-park_23-2150407400.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1699315200&semt=sph"
+                            id="dogImgae">
+                        <div class="showDogName5" id="dogname">푸들</div>
+                    </div>
+                    <div class="showDogImgages6" onclick="loadDogTypePage(event)">
+                        <img src="https://images.mypetlife.co.kr/content/uploads/2022/12/07161728/AdobeStock_212879665-1024x670.jpeg"
+                            id="dogImgae">
+                        <div class="showDogName6" id="dogname">말티즈</div>
+                    </div>
+                </div>
+                <div class="rightArrow">
+                    <!--더보기 아이콘-->
+                    <img class="moreIcon" id="pressIcon" onclick="makeScroll(event)" src="./moreIcon.png">
+                    <!--스크롤 가능하게-->
+                    <!--가로 스크롤 & 펼쳐진 쪽으로 이동하게 애니메이션-->
+                </div>
+            </div>
+        </div>
+        <div class="productAdLayout">
+            <!-- 반려동물 쇼핑 정보 -->
+            <p>반려동물 쇼핑 정보</p>
+            <div class="productAd">
+                <!--여기도 링크 걸기 : 쇼핑몰 링크?-->
+                <img class="productAdImg" src="./hyeongWuk.jpg">
+                <div class="productAdText">
+                    <div class="productAdTitle">프리미엄 개껌</div>
+                    <div class="productAdExplain">
+                        <!--설명 받아오기...-->
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni tempore impedit consequuntur et
+                        officiis iste voluptates itaque non saepe commodi nemo quas voluptatem facilis, perspiciatis sit
+                        veritatis porro repudiandae possimus.
+                        Nam eum accusamus nobis optio illum necessitatibus nisi sed molestias nesciunt consectetur
+                        temporibus, recusandae pariatur facilis quos magnam dolorum atque voluptatibus fugit assumenda
+                        sunt
+                        libero officiis est animi! Quisquam, iste?
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="communityLayout">
+            <p>커뮤니티</p>
+            <!-- 커뮤니티 -->
+            <!--임시로 작성해둠-->
+            <div class="community">
+                <!-- 커뮤니티 글로 이동할 수 있게 링크걸기-->
+                <div class="community1">
+                    <p>반려동물 동반입장 가능한 카페</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, non similique qui a veniam
+                        officia nobis facere repellendus at ad impedit aspernatur nihil perferendis consectetur eligendi
+                        atque doloremque. Eligendi, molestiae.</p>
+                </div>
+                <div class="community2">
+                    <p>반려동물 동반입장 가능한 카페</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, non similique qui a veniam
+                        officia nobis facere repellendus at ad impedit aspernatur nihil perferendis consectetur eligendi
+                        atque doloremque. Eligendi, molestiae.</p>
+                </div>
+                <div class="community3">
+                    <p>반려동물 동반입장 가능한 카페</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, non similique qui a veniam
+                        officia nobis facere repellendus at ad impedit aspernatur nihil perferendis consectetur eligendi
+                        atque doloremque. Eligendi, molestiae.</p>
+                </div>
+                <div class="community4">
+                    <p>반려동물 동반입장 가능한 카페</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, non similique qui a veniam
+                        officia nobis facere repellendus at ad impedit aspernatur nihil perferendis consectetur eligendi
+                        atque doloremque. Eligendi, molestiae.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        let dbTemp = [['말티즈', 'https://images.mypetlife.co.kr/content/uploads/2022/12/07161728/AdobeStock_212879665-1024x670.jpeg', '오래된 견종이라 유전병에 대한 걱정이 상대적으로 적어요', '가족 구성원 중 한사람만 좋아하는 편애가 심한 편이에요'], ['비글', 'https://mblogthumb-phinf.pstatic.net/MjAxOTA4MjlfNCAg/MDAxNTY3MDc5NzkxNzc5.KY9AtMKkpn4TheXmkdR2RPfjkYx_XahBlv3ZdAnl4y8g.u8pjzBsBYLRcy6tqrNEHxxJlAeQrSKQIT1CwhULHDfAg.PNG.vet6390/%EB%B9%84%EA%B8%80%EC%9D%98_%ED%8A%B9%EC%A7%95.PNG?type=w800', '활기차고 에너지가 넘쳐요 호기심이 많고 친화력이 좋아요', '사냥개 출신이라 하울링이 많고 에너지가 많아 산책과 놀이활동으로 해소해주어야 해요'], ['시츄', 'https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmekUd%2FbtrSDFbbA8R%2Fq3a2LlPKIsEPlZOPsirK31%2Fimg.png', '일명 천사견, 느긋하고 주인에 대한 집착이 적은 편이에요', '게으르고 고집이 센 편이라 비만이 되지 않도록 신경써주어야해요'], ['치와와', 'https://img.famtimes.co.kr/resources/2019/02/15/yE5YxHsTC4HAblpe.jpg', '체구에 맞지 않는 용맹함이 특징이에요 충성심이 높고 자신감이 넘쳐요', '털이 많이 빠지고 화가 많아 스트레스 관리가 필요해요'], ['요크셔 테리어', 'https://thumb.photo-ac.com/50/508b85e6e79d8b8dafd12ea40b1af733_t.jpeg', '혈기왕성하고 권위적인 귀족이에요', '쥐 사냥을 목적으로 길러진 견종이기 때문에 소동물과 키우면 공격성이 커질 수 있어요'], ['푸들', 'https://img.freepik.com/free-photo/view-of-cute-dog-enjoying-time-in-nature-at-the-park_23-2150407400.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1699315200&semt=sph', '활동적이고 지능적이며 우아해요', '똑똑하고 활발한 편이니 에너지를 산책과 놀이로 해소해주어야해요']]; //임시로 db(?)용 이중배열 선언
+
+        function makeScroll(e) {
+            let dogParent = $(e.target).parent();
+            let dogBrother = dogParent.prev();
+            let dogImgaeLast = dogBrother.children().last();
+            dogImgaeLast[0].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "end" });
+            dogParent.children('img').attr('style', "visibility: hidden;");
+            let dogLeftArrow = dogParent.parent().children('.leftArrow');
+            dogLeftArrow.children('img').removeAttr('style');
+        }
+        function makeScrollL(e) {
+            let dogParent = $(e.target).parent();
+            let dogBrother = dogParent.next();
+            let dogImgaeFirst = dogBrother.children().first();
+            dogImgaeFirst[0].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+            dogParent.children('img').attr('style', "visibility: hidden;");
+            let dogRightArrow = dogParent.parent().children('.rightArrow');
+            dogRightArrow.children('img').removeAttr('style');
+        }
+        function callDogTypePage(e) {
+            let keyWord = ""
+            keyWord = $("input.secrchMain").val();
+            window.localStorage.setItem('dogName', keyWord);
+            window.localStorage.setItem('clickEvent', e);
+            window.open('./html/dogtype_copy.html');
+        }
+        function loadDogTypePage(e) {
+            let keyWord = ""
+            keyWord = $(e.currentTarget).children('div')[0].innerHTML;
+            //keyWord = $("input.secrchMain").val();
+            window.localStorage.setItem('dogName', keyWord);
+            window.localStorage.setItem('clickPicture', e);
+            window.open('./html/dogtype_copy.html');
+        }
+    </script>
+</body>
+
+</html>
