@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마이펫 - 커뮤니티</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/community.css" />
+    <script type="module" src="/components/navbar.js"></script>
+    <script type="module" src="/components/post2.js"></script>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.5.0.min.js"
+    ></script>
+    <script
+      src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
+      integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c="
+      crossorigin="anonymous"
+    ></script>
+    <script src="javascript/index.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+      const object1 = [
+        {
+          id: 0,
+          title: "말티즈의 매력",
+          content:
+            "말티즈는 작고 귀여운 외모와 활발한 성격으로 유명한 견종입니다. 사랑스러운 외모 뒤에는 똑똑하고 애정 넘치는 성향을 가지고 있어 많은 가족들에게 사랑받고 있습니다.",
+          author: "개껌조아1",
+          timestamp: "2023-11-14 09:30",
+        },
+        {
+          id: 1,
+          title: "골든 리트리버의 특징",
+          content:
+            "골든 리트리버는 온순하고 친근한 성격으로 잘 알려져 있습니다. 또한 지능이 높아 훈련이 쉽고 가족들과 잘 어울리는 특성을 가지고 있습니다. 활발한 놀이와 산책을 즐기는 품종 중 하나입니다.",
+          author: "개껌조아2",
+          timestamp: "2023-11-14 10:15",
+        },
+        {
+          id: 2,
+          title: "시베리안 허스키의 멋진 외모",
+          content:
+            "시베리안 허스키는 뛰어난 울타리와 털뭉치로 유명한 견종 중 하나입니다. 남극견이라 불리며 풍부한 에너지와 우아한 외모로 많은 사랑을 받고 있습니다. 주인과의 깊은 유대감을 형성하는 특징이 있습니다.",
+          author: "개껌조아3",
+          timestamp: "2023-11-14 11:00",
+        },
+      ];
+    </script>
+  </head>
+  <body>
+    <nav-bar></nav-bar>
+    <div class="container">
+      <div class="board_wrap">
+        <div class="pageTitle">
+          <h1>자유 커뮤니티
+          </h1>
+          <custom-button data-type="primary" data-label="글쓰기" onclick="write()"></custom-button>
+        </div>
+        <div class="board_list_wrap">
+          <div class="board_list">
+            <div>
+              <a href=""
+                ><!--보드게시판-->
+                <h4>아이가 초콜릿을 먹었어요ㅠㅠ</h4>
+                <p>
+                  어떻게 해야하죠? 토를 하게 해야하는데 어떻게 해야하는지
+                  모르겠어요ㅠㅠ
+                </p>
+                <div class="writer">글쓴이</div>
+                <div class="date">2023.11.14 오전 3시 10분</div>
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <h4>노는것이 불편한지 궁금해요</h4>
+                <p>내용 미리보기</p>
+                <div class="writer">글쓴이</div>
+                <div class="date">2023.11.13 오후 12시 47분</div>
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <h4>밥을 안 먹는 아이 어쩌죠?</h4>
+                <p>내용 미리보기</p>
+                <div class="writer">글쓴이</div>
+                <div class="date">2023.11.14</div>
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <h4>강아지랑 같이 가기 좋은 카페 추천해주세요!</h4>
+                <p>내용 미리보기</p>
+                <div class="writer">글쓴이</div>
+                <div class="date">2023.11.14</div>
+              </a>
+            </div>
+          </div>
+          <div class="board_page">
+            <a href="#" class="first"><<</a>
+            <a href="#" class="prev"><</a>
+            <a href="#" class="num on">1</a>
+            <a href="#" class="num">2</a>
+            <a href="#" class="num">3</a>
+            <a href="#" class="num">4</a>
+            <a href="#" class="num">5</a>
+            <a href="#" class="next">></a>
+            <a href="#" class="last">>></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

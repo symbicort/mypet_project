@@ -116,7 +116,6 @@ export class Button extends HTMLElement {
     // console.log(submit);
     
     const submit = this.dataset.ruma
-    console.log(submit);
 
 
 

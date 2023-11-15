@@ -75,7 +75,9 @@ document.addEventListener("DOMContentLoaded", () => {
       background-color: white;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       transition: right 0.3s ease;
-      z-index: 2; 
+      z-index: 2;
+      padding: 24px;
+      box-sizing: border-box;
     }
 
     .overlay {
@@ -114,6 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
       transition: all 0.5s;
     }
 
+
     @media (max-width: 480px) {
       .btn-group {
         display: none;
@@ -145,18 +148,18 @@ document.addEventListener("DOMContentLoaded", () => {
       overlay.classList.add("overlay");
 
       btnGroup.innerHTML = `
-      <custom-button id='loginButton' data-type='primary' data-label='로그인'></custom-button>
-      <custom-button id='signupButton' data-type='primary' data-label='회원가입'></custom-button>
+      <custom-button class='loginButton' data-type='primary' data-label='로그인'></custom-button>
+      <custom-button class='signupButton' data-type='primary' data-label='회원가입'></custom-button>
     `;
 
       // 로고 클릭시 홈페이지 이동
       logo.innerHTML = `
-      <a href="https://m.naver.com">
-        <img src="./assets/mypet.svg" alt="logo">
+      <a href="/index.html">
+        <img src="/assets/mypet.svg" alt="logo">
       </a>
     `;
 
-      menuIcon.src = "./assets/menu.svg";
+      menuIcon.src = "/assets/menu.svg";
       menuIcon.alt = "Menu Icon";
 
       // btnGroup.append(loginButton, signupButton);
@@ -198,34 +201,57 @@ document.addEventListener("DOMContentLoaded", () => {
         { text: "견종 카테고리", link: "#" },
         { text: "가족 찾기", link: "#" },
         { text: "꿀팁", link: "#" },
-        { text: "자유 커뮤니티", link: "#" },
+        { text: "자유 커뮤니티", link: "/community.html" },
       ];
 
       const sidebarLogo = document.createElement("div");
       sidebarLogo.classList.add("sidebar-logo");
       sidebarLogo.innerHTML = `
       <a href="#">
-        <img src="./assets/mypet.svg" alt="logo">
+        <img src="/assets/mypet.svg" alt="logo">
       </a>
     `;
       sidebar.appendChild(sidebarLogo);
 
+      
       menuItems.forEach((item) => {
         const menuItem = document.createElement("a");
         menuItem.textContent = item.text;
         menuItem.href = item.link;
-
+        
         sidebar.appendChild(menuItem);
       });
 
-      const loginButton = this.shadowRoot.querySelector("#loginButton");
+      const sidebarBtn = document.createElement("div");
+      sidebarBtn.classList.add("sidebar-btn");
+      sidebarBtn.innerHTML = `
+      <custom-button id='sideLoginButton' data-type='primary' data-label='로그인'></custom-button>
+      <custom-button id='sideSignupButton' data-type='primary' data-label='회원가입'></custom-button>
+    `;
+      sidebar.appendChild(sidebarBtn);
+
+      const loginButton = this.shadowRoot.querySelector(".loginButton");
       loginButton.addEventListener("click", () => {
-        window.location.href = "/login";
+        window.location.href = "/login.html";
       });
-      const signupButton = this.shadowRoot.querySelector("#signupButton");
+
+      const signupButton = this.shadowRoot.querySelector(".signupButton");
       signupButton.addEventListener("click", () => {
-        window.location.href = "/signup";
+        window.location.href = "/signIn.html";
       });
+
+
+      const sideLoginButton = this.shadowRoot.querySelector("#sideLoginButton");
+      sideLoginButton.addEventListener("click", () => {
+        window.location.href = "/login.html";
+      });
+
+      const sideSignupButton = this.shadowRoot.querySelector("#sideSignupButton");
+      sideSignupButton.addEventListener("click", () => {
+        window.location.href = "/signIn.html";
+      });
+
+      
     }
   }
 
