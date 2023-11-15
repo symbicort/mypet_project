@@ -43,8 +43,6 @@ const request = indexedDB.open("myPetDB", 1);
     request.onsuccess = function(event) {
     const db = event.target.result;
     console.log("Database opened successfully");
-
-    // 이제 여기에서 데이터베이스를 사용할 수 있습니다.
     };
 
     // 데이터베이스 열기 또는 생성 실패 시 실행되는 이벤트 핸들러
