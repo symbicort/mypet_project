@@ -8,6 +8,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
         integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
+        <script src="doctype.js"></script>
     <style>
         header {
             background-color: bisque;
@@ -45,14 +46,14 @@
 
         #dogImgae {
             /*검색결과 이미지를 제외한 견종 이미지들*/
-            width: 270px;
+            width: 260px;
             height: 200px;
             margin-right: 13px;
         }
 
-        img.moreIcon {
-            height: 100px;
-            width: 100px;
+        #pressIcon {
+            height: 90px;
+            width: 90px;
         }
 
         .dogLibrary {
@@ -63,7 +64,7 @@
 
         .showDogImgages {
             display: flex;
-            width: 1120px;
+            width: 1079px;
             overflow-x: scroll;
             -ms-overflow-style: none;/* 스크롤바 안보이게 IE and Edge */
             scrollbar-width: none;/* 스크롤바 안보이게 Firefox */
@@ -84,6 +85,10 @@
         <h1>임시 헤더</h1>
         <!--헤더의 구성 페이지 로고 & 검색챙 & 로그인 & 회원가입 & 메뉴버튼 (누르면 오른쪽에서 메뉴바가 나타남)-->
         <img class="menuIcon" id="menuPress" onclick="showMenuBar(event)" src="./menuIcon.png">
+        <div>
+            <input type="text" class="secrchMain">
+            <input type="button" class="secrchPress" value="검색">
+        </div>
     </header>
     <div class="mainContent">
         <!-- 헤더가 아닌 나머지 -->
@@ -95,6 +100,9 @@
             <!-- 견종검색 + 더보기  -->
             <p>견종백과</p>
             <div class="dogLibrary">
+                <div class="leftArrow">
+                    <img class="moreIconLeft" id="pressIcon" onclick="makeScrollL(event)" src="./moreIcon_L.png" style="visibility: hidden;">
+                </div>
                 <div class="showDogImgages">
                     <!--이미지를 누르면 견종설명 페이지로 이동하게-->
                     <!--이것도 DB에서 받아오게 나중에 수정-->
@@ -127,7 +135,7 @@
                         <div class="showDogName6" id="dogname">말티즈</div>
                     </div>
                 </div>
-                <div>
+                <div class="rightArrow">
                     <!--더보기 아이콘-->
                     <img class="moreIcon" id="pressIcon" onclick="makeScroll(event)" src="./moreIcon.png">
                     <!--스크롤 가능하게-->
@@ -192,14 +200,27 @@
     </div>
     <script>
         function makeScroll(e) {
-            //console.log("오케이~")
             let dogParent = $(e.target).parent();
-            //console.log(dogParent);
             let dogBrother = dogParent.prev();
-            //console.log(dogBrother[0]);
             let dogImgaeLast = dogBrother.children().last();
-            //console.log(dogImgaeLast[0]);
             dogImgaeLast[0].scrollIntoView({behavior: "smooth", block: "nearest", inline: "end"});
+            dogParent.children('img').attr('style',"visibility: hidden;");
+            let dogLeftArrow = dogParent.parent().children('.leftArrow');
+            dogLeftArrow.children('img').removeAttr('style');
+        }
+        function makeScrollL(e) {
+            let dogParent = $(e.target).parent();
+            let dogBrother = dogParent.next();
+            let dogImgaeFirst = dogBrother.children().first();
+            dogImgaeFirst[0].scrollIntoView({behavior: "smooth", block: "nearest", inline: "start"});
+            dogParent.children('img').attr('style',"visibility: hidden;");
+            let dogRightArrow = dogParent.parent().children('.rightArrow');
+            dogRightArrow.children('img').removeAttr('style');
+        }
+        function callDogTypePage(e) {
+            let keyWord = ""
+            keyWord = $("input.secrchMain").val();
+            findExplian(e)
         }
     </script>
 </body>
