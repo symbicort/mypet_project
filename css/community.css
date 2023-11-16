@@ -38,6 +38,7 @@ ul, li{
 .board_list > .clickableDiv > h4{
   font-weight: 900;
   font-size: 19px;
+  color: var(--color-gray-700)
 }
 
 /*글  상세내용 안보이게*/
@@ -66,10 +67,10 @@ ul, li{
   }
 }
 
-
 .date{
   color: #717171;
 }
+
 .writer{
   margin-right: 20px;
   color: #717171;

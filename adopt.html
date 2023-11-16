@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+
+      const petData = [];
+
+      fetch(
+        "http://openapi.seoul.go.kr:8088/78664b614370646a38324950724644/json/TbAdpWaitAnimalView/1/999/"
+      )
+        .then((res) => res.json())
+        .then((myJson) => {
+          const petData = myJson.TbAdpWaitAnimalView.row
+          console.log(petData);
+        });
+
+        console.log(petData);
+
+        for (i = 0; i < petData.length; i++) {
+          console.log(petData);
+        }
+
+      
+    </script>
+  </head>
+  <body>
+
+    <div class="container">
+
+      <div class="animal">
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
