@@ -10,7 +10,7 @@
     <script defer type="module" src="/components/navbar.js"></script>
     <script defer src="/components/post.js"></script>
     <script defer src="/components/textfield.js"></script>
-    <script defer src="/components/post2.js"></script>
+    <script defer src="/components/post.js"></script>
     <link
       rel="stylesheet"
       type="text/css"
@@ -84,7 +84,7 @@
       const postContainer = document.getElementById("postContainer");
 
       object1.forEach((postData) => {
-        const post2 = document.createElement("posts-2");
+        const post2 = document.createElement("post-item");
         post2.setAttribute("data-title", postData.title);
         post2.setAttribute("data-content", postData.content);
         post2.setAttribute("data-author", postData.author);

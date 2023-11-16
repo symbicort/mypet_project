@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="css/index.css" />
     <script type="module" src="/components/navbar.js"></script>
-    <script type="module" src="/components/post2.js"></script>
+    <script type="module" src="/components/post.js"></script>
     <script
       type="text/javascript"
       src="https://code.jquery.com/jquery-3.5.0.min.js"
@@ -206,7 +206,7 @@
       const postContainer = document.getElementById("postContainer");
 
       object1.forEach((postData) => {
-        const post2 = document.createElement("posts-2");
+        const post2 = document.createElement("post-item");
         post2.setAttribute("data-title", postData.title);
         post2.setAttribute("data-content", postData.content);
         post2.setAttribute("data-author", postData.author);
