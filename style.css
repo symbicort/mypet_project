@@ -83,6 +83,10 @@ table {
   
 }
 
+* {
+  font-family: 'Pretendard Variable', sans-serif;
+}
+
 
 body {
   margin: 0;
@@ -120,26 +124,31 @@ h1, h2, p {
 }
 
 p {
-  color: var(--color-gray-500)
+  color: var(--color-gray-500);
+  line-height: 1.5;
 }
 
 h1 {
   font-size: 1.6rem;
   font-weight: 700;
-  color: var(--color-gray-700)
+  color: var(--color-gray-700);
+  line-height: 1.4;
 }
 
 h2 {
   font-size: 1.4rem;
   font-weight: 700;
-  color: var(--color-gray-700)
+  color: var(--color-gray-700);
+  line-height: 1.4;
 }
 
 h1.pageTitle {
   margin-bottom: 60px;
+  line-height: 1.4;
 }
 
 h1.pageTitle.center {
   margin-bottom: 60px;
   text-align: center;
+  line-height: 1.4;
 }

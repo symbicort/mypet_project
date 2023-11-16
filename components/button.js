@@ -61,14 +61,12 @@ export class Button extends HTMLElement {
       background-color: var(--gray-400, #9CA3AF);
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
       transform: scale(1.03);
-      border: 2px solid var(--color-gray-400);
     }
 
     button.secondary:active {
       background-color: var(--gray-600, #374151);
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
       transform: scale(1);
-      border: 2px solid var(--color-gray-600);
     }
 
     button.ghost:hover {
