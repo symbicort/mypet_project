@@ -7,24 +7,10 @@ ul, li{
   list-style: none;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
 .board_wrap {
   width: 100%;
   /* margin: 100px auto; */
   /* display: inline-block; */
-}
-
-.board_title {
-  margin-bottom: 60px;
-}
-
-.board_title strong {
-  font-size: 40px;
-  font-weight: bolder;
 }
 
 .pageTitle {
@@ -34,24 +20,52 @@ a {
   margin-bottom: 60px;
 }
 
-.board_list > div{
+.board_list > .clickableDiv{
   border-bottom: 1px solid #ddd;
   padding-bottom: 30px;
   padding-top: 30px;
-
+  cursor: pointer;
 }
-.board_list > div > a > div{
+
+.board_list > .clickableDiv > div{
   display: inline-block;
 }
 
-.board_list > div > a > p{
+.board_list > .clickableDiv > p{
   color: #999;
   margin: 10px 0;
 }
-.board_list > div > a > h4{
+.board_list > .clickableDiv > h4{
   font-weight: 900;
   font-size: 19px;
 }
+
+/*글  상세내용 안보이게*/
+.board_list .hidden { 
+  opacity: 0;
+  transition: opacity linear;
+  border: 5px solid #7dd3fc;
+  border-radius: 30px;
+  background-color: white;
+  height: 100px;
+  width: 500px;
+  text-align: center;
+  padding-top: 20px;
+}
+.board_list .visible {
+  animation: fadeIn 1s ease-out forwards ;
+}
+@keyframes fadeIn {
+  from {
+      transform: translateY(0); /* 시작 위치 조정 */
+      opacity: 0.3;
+  }
+  to {
+      transform: translateY(20px); /* 종료 위치 조정*/
+      opacity: 1;
+  }
+}
+
 
 .date{
   color: #717171;
@@ -59,16 +73,6 @@ a {
 .writer{
   margin-right: 20px;
   color: #717171;
-}
-
-button{ /*글쓰기 버튼*/
-  background-color: skyblue;
-  color: white;
-  font-size: 20px;
-  border:none;
-  border-radius: 5px;
-  padding: 10px;
-  cursor: pointer;
 }
 
 .board_page {
@@ -90,3 +94,4 @@ button{ /*글쓰기 버튼*/
   background-color: skyblue;
   color: white;
 }
+
