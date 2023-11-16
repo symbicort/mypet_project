@@ -1,4 +1,4 @@
-function addPost(){
+function writePost(){
     const item = JSON.parse(sessionStorage.getItem("isLoginUser"));
     const title = String(document.querySelector('#title').value); 
     const content = String(document.querySelector('#content').value);
@@ -29,8 +29,6 @@ function addPost(){
     const seconds = String(nowDate.getSeconds()).padStart(2, '0');
 
     const timestamp = `${year}.${month}.${day} ${hours}:${minutes}:${seconds}`;
-
-    const pattern = /\s/;
 
     if(title.length < 3){
         alert('제목은 3자 이상으로 기입해주세요');
