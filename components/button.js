@@ -1,5 +1,9 @@
 export class Button extends HTMLElement {
   static css = `
+  :host {
+    display: block;
+  }
+
   button {
     font-family: sans-serif;
     font-weight: 700;
@@ -47,39 +51,41 @@ export class Button extends HTMLElement {
 
     button.primary:hover {
       background-color: var(--color-sky-400, #38BDF8);
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-      transform: scale(1.03);
+      transition: all 0.3s;
+      transform: scale(1.02);
     }
 
     button.primary:active {
       background-color: var(--color-sky-600, #0284C7);
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transition: all 0.3s;
       transform: scale(1);
     }
 
     button.secondary:hover {
       background-color: var(--gray-400, #9CA3AF);
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-      transform: scale(1.03);
+      transition: all 0.3s;
+      transform: scale(1.02);
     }
 
     button.secondary:active {
       background-color: var(--gray-600, #374151);
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transition: all 0.3s;
       transform: scale(1);
     }
 
     button.ghost:hover {
       background-color: var(--color-sky-100, #0EA5E9);
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-      transform: scale(1.03);
+      transition: all 0.3s;
+      transform: scale(1.02);
       border: 2px solid var(--color-sky-500);
+      overflow: hidden; 
     }
     button.ghost:active {
       background-color: var(--color-sky-200, #0EA5E9);
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transition: all 0.3s;
       transform: scale(1);
       border: 2px solid var(--color-sky-500);
+      overflow: hidden; 
     }
 
   `;

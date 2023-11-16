@@ -1,5 +1,4 @@
-// import "./Button.js";
-import { Button } from "./Button.js";
+import { Button } from "./button.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   class Navbar extends HTMLElement {
@@ -44,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       align-items: center;
       width: fit-content;
       transition: all 0.5s;
+      height: fit-content;
     }
 
     .btn-group {
@@ -117,10 +117,55 @@ document.addEventListener("DOMContentLoaded", () => {
       transition: all 0.5s;
     }
 
+    .top-menu {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      transform: translateX(20px);
+    }
 
-    @media (max-width: 480px) {
+    .top-menu a {
+      text-decoration: none;
+      color: var(--color-gray-500);
+      padding: 12px;
+
+    }
+
+    .top-menu a:hover {
+      color: var(--color-sky-500);
+      font-weight: 700;
+      transition: all 0.5s;
+      border-radius: 8px;
+      background-color: var(--color-sky-100);
+      padding: 12px;
+    }
+
+
+
+    @media (max-width: 800px) {
+      .menu {
+        display:flex;
+      }
       .btn-group {
         display: none;
+      }
+      .top-menu {
+        display: none;
+      }
+      
+    }
+
+
+    @media (min-width: 800px) {
+      .menu {
+        display: flex;
+      }
+      .menu img {
+        display: none;
+      }
+      .top-menu {
+        display: flex;
       }
     }
   `;
@@ -140,6 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const menuIcon = document.createElement("img");
       const sidebar = document.createElement("div");
       const overlay = document.createElement("div");
+      const topMenu = document.createElement("div");
 
       style.innerHTML = Navbar.css;
       logo.classList.add("logo");
@@ -147,6 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
       btnGroup.classList.add("btn-group");
       sidebar.classList.add("sidebar");
       overlay.classList.add("overlay");
+      topMenu.classList.add("top-menu");
 
       btnGroup.innerHTML = `
       <custom-button class='loginButton' data-type='primary' data-label='로그인'></custom-button>
@@ -165,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // btnGroup.append(loginButton, signupButton);
       menu.append(btnGroup, menuIcon);
-      header.append(logo, menu);
+      header.append(logo, topMenu, menu);
       this.shadowRoot.append(style, header, sidebar, overlay);
 
       // const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
@@ -199,7 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       const menuItems = [
-        { text: "견종 카테고리", link: "#" },
+        { text: "견종 카테고리", link: "/dogtype.html" },
         { text: "가족 찾기", link: "/findAnimal.html" },
         { text: "꿀팁", link: "#" },
         { text: "자유 커뮤니티", link: "/community.html" },
@@ -221,6 +268,14 @@ document.addEventListener("DOMContentLoaded", () => {
         menuItem.href = item.link;
         
         sidebar.appendChild(menuItem);
+      });
+
+      menuItems.forEach((item) => {
+        const menuItem = document.createElement("a");
+        menuItem.textContent = item.text;
+        menuItem.href = item.link;
+        
+        topMenu.appendChild(menuItem);
       });
 
       const sidebarBtn = document.createElement("div");
