@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마이펫 - 견종</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/dogtype.css" />
+    <script type="module" src="/components/navbar.js"></script>
+
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.5.0.min.js"
+    ></script>
+    <script
+      src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
+      integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c="
+      crossorigin="anonymous"
+    ></script>
+    <script src="javascript/dogtype.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+      temp();
+    </script>
+  </head>
+  <body>
+    <nav-bar></nav-bar>
+
+    <div class="searchFab">
+      <i data-feather="search"></i>
+    </div>
+
+    <!-- <div class="search">
+      <input type="text" id="search" placeholder="견종명을 입력" />
+      <custom-button
+        data-type="primary"
+        data-label="검색"
+        onclick="findExplian(event)"
+      ></custom-button>
+    </div> -->
+
+    <div class="hero">
+      <img
+        class="mainImg"
+        src="https://images.mypetlife.co.kr/content/uploads/2022/12/07161728/AdobeStock_212879665-1024x670.jpeg"
+      />
+      <h1 class="explainName">말티즈</h1>
+    </div>
+
+    <div class="container">
+      
+        <div class="explainText">
+          <div class="character">
+            <h2>성격</h2>
+            <p>
+              오래된 견종이라 유전병에 대한 걱정이 상대적으로 적어요
+            </p>
+          </div>
+
+          <div class="habit">
+            <h2>습관</h2>
+            <p>
+              가족 구성원 중 한사람만 좋아하는 편애가 심한 편이에요
+            </p>
+          </div>
+        </div>
+
+
+      <div class="fitContainer section">
+        <h2>내 아이와 <strong class="pos">잘 맞는</strong> 견종</h2>
+        <div class="fitImage">
+          <div class="fit fit1" onclick="showExplain(event)">
+            <img
+              src="https://thumb.photo-ac.com/50/508b85e6e79d8b8dafd12ea40b1af733_t.jpeg"
+            />
+            <p class="fitName1">요크셔테리어</p>
+          </div>
+          <div class="fit fit2" onclick="showExplain(event)">
+            <img
+              src="https://mblogthumb-phinf.pstatic.net/MjAxOTA4MjlfNCAg/MDAxNTY3MDc5NzkxNzc5.KY9AtMKkpn4TheXmkdR2RPfjkYx_XahBlv3ZdAnl4y8g.u8pjzBsBYLRcy6tqrNEHxxJlAeQrSKQIT1CwhULHDfAg.PNG.vet6390/%EB%B9%84%EA%B8%80%EC%9D%98_%ED%8A%B9%EC%A7%95.PNG?type=w800"
+            />
+            <p class="fitName2">비글</p>
+          </div>
+          <div class="fit fit3" onclick="showExplain(event)">
+            <img
+              src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmekUd%2FbtrSDFbbA8R%2Fq3a2LlPKIsEPlZOPsirK31%2Fimg.png"
+            />
+            <p class="fitName3">시츄</p>
+          </div>
+          <div class="fit fit4" onclick="showExplain(event)">
+            <img
+              src="https://img.famtimes.co.kr/resources/2019/02/15/yE5YxHsTC4HAblpe.jpg"
+            />
+            <p class="fitName4">치와와</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="fitNotContainer section">
+        <h2>내 아이와 <strong class="neg">안맞는</strong> 견종</h2>
+        <div class="fitImage">
+          <div class="fit fitNot1" onclick="showExplain(event)">
+            <img
+              src="https://img.freepik.com/free-photo/view-of-cute-dog-enjoying-time-in-nature-at-the-park_23-2150407400.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1699315200&semt=sph"
+            />
+            <p class="fitNotName1">푸들</p>
+          </div>
+          <div class="fit fitNot2" onclick="showExplain(event)">
+            <img
+              src="https://images.mypetlife.co.kr/content/uploads/2022/12/07161728/AdobeStock_212879665-1024x670.jpeg"
+            />
+            <p class="fitNotName2">말티즈</p>
+          </div>
+          <div class="fit fitNot3" onclick="showExplain(event)">
+            <img
+              src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmekUd%2FbtrSDFbbA8R%2Fq3a2LlPKIsEPlZOPsirK31%2Fimg.png"
+            />
+            <p class="fitNotName3">시츄</p>
+          </div>
+          <div class="fit fitNot4" onclick="showExplain(event)">
+            <img
+              src="https://img.famtimes.co.kr/resources/2019/02/15/yE5YxHsTC4HAblpe.jpg"
+            />
+            <p class="fitNotName4">치와와</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script>
+      feather.replace();
+    </script>
+
+
+  </body>
+</html>

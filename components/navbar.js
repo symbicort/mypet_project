@@ -246,7 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       const menuItems = [
-        { text: "견종 카테고리", link: "#" },
+        { text: "견종 카테고리", link: "/dogtype.html" },
         { text: "가족 찾기", link: "/findAnimal.html" },
         { text: "꿀팁", link: "#" },
         { text: "자유 커뮤니티", link: "/community.html" },
