@@ -29,32 +29,8 @@
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="/javascript/community.js"></script>
     <script>
-      const object1 = [
-        {
-          id: 0,
-          title: "말티즈의 매력",
-          content:
-            "말티즈는 작고 귀여운 외모와 활발한 성격으로 유명한 견종입니다. 사랑스러운 외모 뒤에는 똑똑하고 애정 넘치는 성향을 가지고 있어 많은 가족들에게 사랑받고 있습니다.",
-          author: "개껌조아1",
-          timestamp: "2023-11-14 09:30",
-        },
-        {
-          id: 1,
-          title: "골든 리트리버의 특징",
-          content:
-            "골든 리트리버는 온순하고 친근한 성격으로 잘 알려져 있습니다. 또한 지능이 높아 훈련이 쉽고 가족들과 잘 어울리는 특성을 가지고 있습니다. 활발한 놀이와 산책을 즐기는 품종 중 하나입니다.",
-          author: "개껌조아2",
-          timestamp: "2023-11-14 10:15",
-        },
-        {
-          id: 2,
-          title: "시베리안 허스키의 멋진 외모",
-          content:
-            "시베리안 허스키는 뛰어난 울타리와 털뭉치로 유명한 견종 중 하나입니다. 남극견이라 불리며 풍부한 에너지와 우아한 외모로 많은 사랑을 받고 있습니다. 주인과의 깊은 유대감을 형성하는 특징이 있습니다.",
-          author: "개껌조아3",
-          timestamp: "2023-11-14 11:00",
-        },
-      ];
+      sessionStorage.setItem('currentPageNum','1');
+      getPosts(sessionStorage.getItem('currentPageNum'));
     </script>
   </head>
   <body>
@@ -67,69 +43,93 @@
         </div>
         <div class="btn-group" style="display: flex; gap: 8px;">
           <custom-button data-type="primary" data-label="글쓰기" onclick="writePost()"></custom-button>
-          <custom-button data-type="secondary" data-label="DB생성" onclick="makeDB()"></custom-button>
-          <custom-button data-type="secondary" data-label="DB삭제" onclick="deleteDatabase()"></custom-button>
         </div>
         <div class="board_list_wrap">
           <div class="board_list">
-            <div class="clickableDiv" onclick="toggleContent()"> <!--글 한문단-->
+            <div class="clickableDiv" onclick="toggleContent(); clickPost(1)" id="post1"> <!--글 한문단-->
               <!--보드게시판-->
-              <h4>아이가 초콜릿을 먹었어요ㅠㅠ</h4>
-              <p>
-                어떻게 해야하죠? 토를 하게 해야하는데 어떻게 해야하는지
-                모르겠어요ㅠㅠ
-              </p>
-              <div class="writer">글쓴이</div>
-              <div class="date">2023.11.14 오전 3시 10분</div>
+              <!-- 선택한 글 저장을 위해 a태그 추가 -->
+              <h4 class="title"></h4>
+              <p class="content"></p>
+              <div class="writer"></div>
+              <div class="date"></div>
               <div style="display: block;" id="content1" class="hidden">
                 라라라라라라라라로리로리ㅗ리ㅗ리라루리뤼루릴<!--글 상세내용-->
               </div>
             </div>
             
-            <div class="clickableDiv" onclick="toggleContent()">
-              <h4>노는것이 불편한지 궁금해요</h4>
-              <p>내용 미리보기</p>
-              <div class="writer">글쓴이</div>
-              <div class="date">2023.11.13 오후 12시 47분</div>
+            <div class="clickableDiv" onclick="toggleContent(); clickPost(2)" id="post2">
+              <h4 class="title"></h4>
+              <p class="content"></p>
+              <div class="writer"></div>
+              <div class="date"></div>
               <!-- <div id="content2" class="hidden2">
                 라라라라라라라라로리로리ㅗ리ㅗ리라루리뤼루릴
               </div> -->
             </div>
 
-            <div class="clickableDiv" onclick="toggleContent()">
-              <h4>밥을 안 먹는 아이 어쩌죠?</h4>
-              <p>내용 미리보기</p>
-              <div class="writer">글쓴이</div>
-              <div class="date">2023.11.14</div>
+            <div class="clickableDiv" onclick="toggleContent(); clickPost(3)" id="post3">
+              <h4 class="title"></h4>
+              <p class="content"></p>
+              <div class="writer"></div>
+              <div class="date"></div>
               <!-- <div id="content3" class="hidden3">
                 라라라라라라라라로리로리ㅗ리ㅗ리라루리뤼루릴
               </div> -->
             </div>
 
-            <div class="clickableDiv" onclick="toggleContent()">
-              <h4>강아지랑 같이 가기 좋은 카페 추천해주세요!</h4>
-              <p>내용 미리보기</p>
-              <div class="writer">글쓴이</div>
-              <div class="date">2023.11.14</div>
+            <div class="clickableDiv" onclick="toggleContent(); clickPost(4)" id="post4">
+              <h4 class="title"></h4>
+              <p class="content"></p>
+              <div class="writer"></div>
+              <div class="date"></div>
               <!-- <div id="content4" class="hidden4">
                 라라라라라라라라로리로리ㅗ리ㅗ리라루리뤼루릴
               </div> -->
             </div>
           </div>
 
-          <div class="board_page">
+          <div class="board_page pageNumber">
             <a href="#" class="first"><<</a>
             <a href="#" class="prev"><</a>
-            <a href="#" class="num on">1</a>
-            <a href="#" class="num">2</a>
-            <a href="#" class="num">3</a>
-            <a href="#" class="num">4</a>
-            <a href="#" class="num">5</a>
+            <a href="#" class="num on" data-page="1" id="pageNum1">1</a>
+            <a href="#" class="num" data-page="2" id="pageNum2">2</a>
+            <a href="#" class="num" data-page="3" id="pageNum3">3</a>
+            <a href="#" class="num" data-page="4" id="pageNum4">4</a>
+            <a href="#" class="num" data-page="5" id="pageNum5">5</a>
             <a href="#" class="next">></a>
             <a href="#" class="last">>></a>
-          </div>
+        </div>
         </div>
       </div>
     </div>
+    <script>
+      // 페이지 번호를 감지하는 함수
+      function handlePageClick(event) {
+        // 이벤트가 발생한 a 태그의 기본 동작을 막습니다.
+          event.preventDefault();
+  
+        // 클릭된 페이지 번호를 가져옵니다.
+          const clickedPage = event.target.dataset.page;
+  
+          const defaultPageNum = document.getElementsByClassName('on');
+
+          // HTMLCollection이므로 인덱스로 개별 요소에 접근
+          for (let i = 0; i < defaultPageNum.length; i++) {
+              defaultPageNum[i].classList.remove('on');
+          }
+
+          const pageNum = document.getElementById(`pageNum${clickedPage}`);
+          pageNum.classList.add('on');
+          console.log(pageNum);
+
+          getPosts(pageNum.innerText);
+      }
+      // 모든 페이지 번호를 가진 a 태그에 클릭 이벤트 리스너를 추가합니다.
+      const pageLinks = document.querySelectorAll('.pageNumber');
+      pageLinks.forEach(link => {
+          link.addEventListener('click', handlePageClick);
+      });
+  </script>
   </body>
 </html>

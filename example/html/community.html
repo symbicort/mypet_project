@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마이펫 - 커뮤니티</title>
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css"
+    />
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="../../css/community.css" />
+    <!-- <script type="module" src="/components/navbar.js"></script>
+    <script type="module" src="/components/post2.js"></script> -->
+    <script
+        type="text/javascript"
+        src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <script
+        src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
+        integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c="
+        crossorigin="anonymous"
+    ></script>
+    <script src="../../javascript/index.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="../js/permissionChk.js"></script>
+    <script src="../js/sessionTimeout.js"></script>
+    <script src="../js/viewPost.js"></script>
+    <script>
+        sessionStorage.setItem('currentPageNum','1');
+        function moveToWritePost(){
+            window.location.href = 'addPost.html'
+        }
+        getPosts(sessionStorage.getItem('currentPageNum'));
+    </script>
+</head>
+<body>
+    <nav-bar></nav-bar>
+    <div class="container">
+        <div class="board_wrap">
+        <div class="pageTitle">
+            <h1>자유 커뮤니티
+            </h1>
+            <button data-type="primary" data-label="글쓰기" onclick="moveToWritePost()">글쓰기</button>
+        </div>
+        <div class="board_list_wrap">
+            <div class="board_list">
+            <div id="post1">
+                <a onclick="clickPost(1)"><!--보드게시판-->
+                <h4 class="title"></h4>
+                <p class="content"></p>
+                <div class="writer"></div>
+                <div class="date"></div>
+                </a>
+            </div>
+            <div id="post2">
+                <a onclick="clickPost(2); ">
+                    <h4 class="title"></h4>
+                    <p class="content"></p>
+                    <div class="writer"></div>
+                    <div class="date"></div>
+                </a>
+            </div>
+            <div id="post3">
+                <a href="" onclick="clickPost(3)"><!--보드게시판-->
+                <h4 class="title"></h4>
+                <p class="content"></p>
+                <div class="writer"></div>
+                <div class="date"></div>
+            </div>
+            <div id="post4">
+                <a href="" onclick="clickPost(4)"><!--보드게시판-->
+                <h4 class="title"></h4>
+                <p class="content"></p>
+                <div class="writer"></div>
+                <div class="date"></div>
+            </div>
+            </div>
+            <div class="board_page pageNumber">
+                <a href="#" class="first"><<</a>
+                <a href="#" class="prev"><</a>
+                <a href="#" class="num on" data-page="1" id="pageNum1">1</a>
+                <a href="#" class="num" data-page="2" id="pageNum2">2</a>
+                <a href="#" class="num" data-page="3" id="pageNum3">3</a>
+                <a href="#" class="num" data-page="4" id="pageNum4">4</a>
+                <a href="#" class="num" data-page="5" id="pageNum5">5</a>
+                <a href="#" class="next">></a>
+                <a href="#" class="last">>></a>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script>
+        // 페이지 번호를 감지하는 함수
+        function handlePageClick(event) {
+          // 이벤트가 발생한 a 태그의 기본 동작을 막습니다.
+            event.preventDefault();
+    
+          // 클릭된 페이지 번호를 가져옵니다.
+            const clickedPage = event.target.dataset.page;
+    
+            const defaultPageNum = document.getElementsByClassName('on');
+
+            // HTMLCollection이므로 인덱스로 개별 요소에 접근
+            for (let i = 0; i < defaultPageNum.length; i++) {
+                defaultPageNum[i].classList.remove('on');
+            }
+
+            const pageNum = document.getElementById(`pageNum${clickedPage}`);
+            pageNum.classList.add('on');
+            console.log(pageNum);
+
+            getPosts(pageNum.innerText);
+        }
+        // 모든 페이지 번호를 가진 a 태그에 클릭 이벤트 리스너를 추가합니다.
+        const pageLinks = document.querySelectorAll('.pageNumber');
+        pageLinks.forEach(link => {
+            link.addEventListener('click', handlePageClick);
+        });
+    </script>
+</body>
+</html>
