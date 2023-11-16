@@ -3,9 +3,8 @@ function signIn() {
     const email = String(document.querySelector('#email').value);
     const phNum = String(document.querySelector('#phNum').value);
     const pw = String(document.querySelector('#pw').value);
-    console.log(pw)
     const pwcheck = String(document.querySelector('#pwcheck').value);
-    console.log(pwcheck);
+
     const pattern = /\s/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const regex = /^010\d{7,8}$/;
@@ -45,7 +44,7 @@ function signIn() {
                     alert('닉네임을 5자 이상 20자 이하로 입력해주세요.\n(공백 입력 불가)');
                 } else if (!emailRegex.test(email)) {
                     alert('올바른 이메일 형식을 입력해주세요.\n(공백 사용 불가)');
-                } else if (pattern.test(phNum) || phNum == "" || phNum.length != 13) {
+                } else if (pattern.test(phNum) || phNum == "" || phNum.length != 11) {
                     alert('올바른 전화번호 형식을 입력해주세요.\n(공백, "-" 입력 X)');
                 } else if (pattern.test(pw) || pw == "" || pw.length < 8) {
                     alert('비밀번호 입력 칸에 공백이 기입되어 있진 않은지 확인해주세요\n(공백 입력 불가)');
@@ -88,7 +87,8 @@ function signIn() {
                 }
             }
         };
-    };              
+    };
+                    
         // 데이터베이스 열기 또는 생성 실패 시
         request.onerror = function (event) {
             console.error("Error opening database:", event.target.error);
