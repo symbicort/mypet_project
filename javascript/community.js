@@ -1,3 +1,9 @@
+function writePost() {
+    window.location.href = 'write.html'
+}
+
+
+
 function makeDB(){
   // 데이터베이스 열기 또는 생성
   const request = indexedDB.open("myPetDB", 1);
