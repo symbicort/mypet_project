@@ -10,7 +10,7 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css"
     />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/findAnimal.css" />
     <script type="module" src="/components/navbar.js"></script>
     <script type="module" src="/components/post.js"></script>
     <script
@@ -39,29 +39,47 @@
 
       // getData()
 
-      const url = 'http://openapi.seoul.go.kr:8088/78664b614370646a38324950724644/json/TbAdpWaitAnimalView/1/999/'
+      const url =
+        "http://openapi.seoul.go.kr:8088/78664b614370646a38324950724644/json/TbAdpWaitAnimalView/1/999/";
+
+      const imgUrl = 'http://openapi.seoul.go.kr:8088/78664b614370646a38324950724644/json/TbAdpWaitAnimalPhotoView/1/999/'
 
 
       async function assignData() {
         const petData = await getData();
+        const petImgData = await getImgData();
 
         console.log(petData.TbAdpWaitAnimalView.row);
+        console.log('이미지', petImgData.TbAdpWaitAnimalPhotoView.row);
 
-        const listContainer = document.querySelector('.list')
-        
+        const listContainer = document.querySelector(".list");
+
         for (i = 0; i < petData.TbAdpWaitAnimalView.row.length; i++) {
-          // console.log(petData.TbAdpWaitAnimalView.row[i])
 
-          
+          const listbox = document.createElement("div")
+          listbox.classList.add('listbox')
 
-          listContainer.innerHTML = `
-          <div>
-            <h1>${petData.TbAdpWaitAnimalView.row[i].NM}
-          </div>
-          `
+          const petName = document.createElement("h2");
+          petName.innerText = `${petData.TbAdpWaitAnimalView.row[i].NM}`
           
+          const petAge = document.createElement("p");
+          petAge.innerText = `${petData.TbAdpWaitAnimalView.row[i].AGE}`
+
+          const petBreed =  document.createElement("p");
+          petBreed.innerText = `${petData.TbAdpWaitAnimalView.row[i].BREEDS}`
+
+          const petInfo =  document.createElement("p");
+          petInfo.innerHTML = `${petData.TbAdpWaitAnimalView.row[i].INTRCN_CN}`
+
+          const petDate =  document.createElement("p");
+
+          const petImage = document.createAttribute("img")
+          petImage.setAttribute('src', `${petImgData.TbAdpWaitAnimalPhotoView.row[i].PHOTO_URL}`)
+
+          listbox.append(petName, petAge, petBreed)
+          listContainer.append(listbox);
+        
         }
-
       }
 
       function getData() {
@@ -75,14 +93,20 @@
         });
       }
 
-      assignData()
+      function getImgData() {
+        return new Promise((resolve, reject) => {
+          fetch(imgUrl)
+            .then((response) => response.json())
 
+            .then((data) => {
+              resolve(data);
+            });
+        });
+      }
 
+      assignData();
 
-
-      // for (i = 0; i < 34; i++) {
-      //   getData();
-      // }
+      
     </script>
   </head>
   <body>
@@ -91,7 +115,9 @@
       <h1 class="pageTitle">가족 찾기</h1>
       <div id="map" style="width: 100%; height: 400px"></div>
 
-      <div class="list"></div>
+      <div class="list">
+
+      </div>
     </div>
 
     <script>

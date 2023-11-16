@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
       align-items: center;
       border-bottom: 1px solid var(--color-gray-200);
       background-color: white;
+      z-index: 2;
 
     }
 
@@ -75,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
       background-color: white;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       transition: right 0.3s ease;
-      z-index: 2;
+      z-index: 4;
       padding: 24px;
       box-sizing: border-box;
     }
@@ -88,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
       left: 0;
       background: rgba(0, 0, 0, 0.5);
       display: none; 
-      z-index: 1; 
+      z-index: 3; 
       transition: all 2s;
     }
 

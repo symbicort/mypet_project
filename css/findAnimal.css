@@ -1,0 +1,12 @@
+.list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.listbox {
+  border: 1px solid var(--color-gray-200);
+  border-radius: 8px;
+  padding: 24px;
+}
