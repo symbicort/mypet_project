@@ -116,7 +116,7 @@ form {
 img {
   width: 100%;
   max-width: 800px;
-  border-radius: 4px;
+  border-radius: 16px;
 }
 
 h1, h2, p {

@@ -1,5 +1,4 @@
-// import "./Button.js";
-import { Button } from "./Button.js";
+import { Button } from "./button.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   class Navbar extends HTMLElement {

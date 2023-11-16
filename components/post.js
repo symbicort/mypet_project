@@ -17,8 +17,8 @@ class Post extends HTMLElement {
     background-color: #fff;
     width: 100%;
     gap: 8px;
-    padding: 32px;
-    border-radius: 4px;
+    padding: 32px 40px;
+    border-radius: 16px;
     border: 1.5px solid var(--color-gray-200);
     margin-bottom: 12px;
     box-sizing: border-box;
