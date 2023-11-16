@@ -83,6 +83,10 @@ table {
   
 }
 
+* {
+  font-family: 'Pretendard Variable', sans-serif;
+}
+
 
 body {
   margin: 0;
