@@ -3,96 +3,196 @@
   padding: 0;
 }
 
-ul, li{
-  list-style: none;
+body {
+  height: 150vh;
+}
+
+.contentHeader {
+  padding: 11px;
+  position: relative;
+  top: 80px;
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.image-box {
+  display: flex;
+  margin-top: 98px;
+  justify-content: center;
+}
+
+.thumbnail {
+  max-height: 180px;
+  max-width: none;
+}
+
+.all_community{
+  width: 100%;
+  max-width: 800px;
+  margin: 100px auto 0;
+  padding: 0px 17px;
+  box-sizing: border-box;
+}
+.community_title{
+  font-weight: bolder;
+  font-size: 23px;
+  margin-bottom: 5px;
+  color: #0ea5e9;
+}
+
+.text1 , .text2{
+  margin-top: 20px;
+  text-align: center;
+  /*border: 1px solid black;*/
+  /*justify-content: space-evenly;*/
+}
+.text1_img , .text2_img{
+  vertical-align: middle;
+  height: 450px;
+}
+
+.article_title{
+  margin: 10px 0 0 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.article_box > .box1 , .box2{
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
+  flex: 1; 
+  box-sizing: border-box; padding: 10px;
+  box-shadow: 0px 0px 30px #dbe0e8;
+  transition: transform 0.3s;
+}
+
+.article_box > .box1:hover {
+  transform: scale(1.05);
+}
+.article_box > .box2:hover {
+  transform: scale(1.05);
+}
+
+.blogHead{
+  display: flex;
+  margin: 8px 0 0 11px;
+}
+.blogHead > .board_block {
+  padding: 13px 0 0 4px;
+}
+.blogHead > .writer{
+  position: relative;
+  padding-right: 10px;
+}
+
+.blogHead > .date {
+  opacity: 0.7;
+  font-size: 12px;
+}
+
+.write_date > .eye {
+  padding-right: 8px;
+  font-size: 12px;
 }
 
 .board_wrap {
   width: 100%;
-  /* margin: 100px auto; */
   /* display: inline-block; */
 }
 
-.pageTitle {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 60px;
-}
-
-.board_list > .clickableDiv{
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 30px;
-  padding-top: 30px;
-  cursor: pointer;
-}
-
-.board_list > .clickableDiv > div{
-  display: inline-block;
-}
-
-.board_list > .clickableDiv > p{
-  color: #999;
-  margin: 10px 0;
-}
-.board_list > .clickableDiv > h4{
-  font-weight: 900;
-  font-size: 19px;
-  color: var(--color-gray-700)
-}
-
-/*글  상세내용 안보이게*/
-.board_list .hidden { 
-  opacity: 0;
-  transition: opacity linear;
-  border: 5px solid #7dd3fc;
-  border-radius: 30px;
-  background-color: white;
-  height: 100px;
-  width: 500px;
-  text-align: center;
-  padding-top: 20px;
-}
-.board_list .visible {
-  animation: fadeIn 1s ease-out forwards ;
-}
-@keyframes fadeIn {
-  from {
-      transform: translateY(0); /* 시작 위치 조정 */
-      opacity: 0.3;
-  }
-  to {
-      transform: translateY(20px); /* 종료 위치 조정*/
-      opacity: 1;
-  }
-}
-
-.date{
-  color: #717171;
-}
-
-.writer{
-  margin-right: 20px;
-  color: #717171;
-}
-
-.board_page {
-  text-align: center;
-  margin-top: 60px;
-  
-}
-
-.board_page a {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
-  line-height: 183%;
-}
-.board_page a.num.on{
-  border: 2px solid 999;
+.writeButton {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  border: none;
   border-radius: 50%;
-  background-color: skyblue;
+  background-color: #0ea5e9;
   color: white;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.237);
 }
 
+.contentHeader>ul {
+  margin: 0;
+  display: flex;
+  /* align-items: center; */
+  /* line-height: 20px; */
+  justify-content: center;
+  position: relative;
+  border-bottom: 1px solid #E5E7EB;
+  top: 100px;
+  white-space: nowrap;
+}
+
+.contentHeader>ul>li {
+  margin: 0 60px 16px;
+}
+
+.contentHeader a {
+  color: #6B7280;
+  /* 링크 색상을 부모 요소로부터 상속받음 */
+  text-decoration: none;
+  /* 밑줄 제거 */
+}
+
+.talk_commu{
+  font-weight: bolder;
+  font-size: 23px;
+  color: #0ea5e9;
+  margin-bottom: 10px;
+}
+/* title 판넬 css */
+.panel-heading>#astyle {
+  font-weight: bold;
+  font-size: 15px;
+  color: #374151;
+  text-decoration: none
+}
+
+.panel-group {
+  margin-top: 20px;
+
+}
+
+.date {
+  color: #6B7280;
+  font-size: 12px;
+}
+
+.writer {
+  margin-right: 50px;
+  color: #6B7280;
+  font-size: 12px;
+}
+
+@media (max-width: 800px) {
+  .productAd {
+    flex-direction: column;
+  }
+
+  .rightArrow {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .contentHeader {
+    padding-top: 0;
+    top: 70px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .pageNumber>a {
+    width: 26px;
+    height: 26px;
+  }
+  .container{
+    width: 400px;
+    margin: 0 20px;
+  }
+}

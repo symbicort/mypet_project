@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마이펫 - 커뮤니티</title>
+
+    <!-- 아코디언 CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- 아이콘용 cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css" />
+    <link rel="stylesheet" href="/css/상세community.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/css/footer.css">
+
+    <script type="module" src="/components/navbar.js"></script>
+    <script type="module" src="/components/post2.js"></script>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
+        integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
+    <script src="javascript/index.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        sessionStorage.setItem('currentPageNum', '1');
+        getPosts(sessionStorage.getItem('currentPageNum'));
+    </script>
+</head>
+
+<body>
+    <nav-bar></nav-bar>
+    <!--보조헤더-->
+    <div class="contentHeader">
+        <a href="#">전체</a>
+        <a href="#">HOT</a>
+        <a href="#">톡톡</a>
+        <a href="#">QnA</a>
+    </div>
+    <!--커뮤니티 썸네일 이미지
+    <div class="image-box">
+        <img class="thumnail" src="/example/Concept for _Dogs_.jpg" style="border-radius: 0; max-width: 1000px;">
+    </div>-->
+
+    <div class="board_view">
+        <header class="board-title holder">
+            <p>강아지치킨 500계치킨</p>
+        </header>
+        <div class="board_summary">
+            <div>
+                <i style="width: 50px;"><img src="/example/유저아이콘.png" style="width: 42px; margin-top: 13px; background-color: #f2f0de;"></i>
+                <div class="board_right">
+                    <div>김형지</div>
+                    <div class="board_category"><a href="#">hot</a></div>
+                    <div class="date">2023-11-10</div>
+                    <div class="eye">조회수</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+    <!--<footer>
+        <ul>
+            <li>회사소개</li>
+            <li>이용약관</li>
+            <li>정보처리방침</li>
+            <li>이용안내</li>
+            <li>상품광고 소개</li>
+            <li>고객의 소리</li>
+        </ul>
+        <div class="footer_foot">
+            <div class="left">
+                <div>Company : (주)마이펫
+                </div>
+                <div>&copy; 2023 Your Website. All rights reserved.</div>
+            </div>
+            <div class="right">
+                <div>Tel. 070-1234-1521 ㅣ mypet@gmail.com</div>
+                <div>address : 서울특별시 마포구 도화2길 53</div>
+            </div>
+
+        </div>
+    </footer>-->
+</body>
+
+</html>

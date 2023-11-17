@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마이펫 - 커뮤니티</title>
+
+    <!-- 아코디언 CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- 아이콘용 cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css" />
+    <link rel="stylesheet" href="css/tip.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/css/footer.css">
+
+    <script type="module" src="/components/navbar.js"></script>
+    <script type="module" src="/components/post2.js"></script>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
+        integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
+    <script src="javascript/index.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        sessionStorage.setItem('currentPageNum', '1');
+        getPosts(sessionStorage.getItem('currentPageNum'));
+    </script>
+</head>
+
+<body>
+    <nav-bar></nav-bar>
+    <div class="container" style="margin-top: 80px;">
+        <div class="board_wrap">
+            <div class="tip_title">
+                초보견주 필독!</div>
+            <div style="margin-bottom: 20px;">
+                <span>#알쓸견잡</span>
+                <span>#나도곧강형욱</span>
+                <span>#필수상식</span>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="panel-group" id="accParent" role="tablist">
+                <!-- 첫번째 아이템 -->
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <a id="astyle" role="button" data-toggle="collapse" data-parent="#accParent" href="#accEx1"
+                            aria-constrols="addEx1">
+                            강아지 고민(ㅜㅜ)
+                        </a>
+                    </div>
+                    <div class="panel-heading" role="tab">
+                        <a role="button" data-toggle="collapse" data-parent="#accParent" href="#accEx1"
+                            aria-constrols="addEx1">
+                            <div style="display: inline-block;" class="writer"><i style="margin-right: 3px;"
+                                    class="bi bi-person"></i>루이사랑</div>
+                            <div style="display: inline-block;" class="date">5시간전</div>
+                        </a>
+                    </div>
+                    <div id="accEx1" class="panel-collapse collapse" role="tabpanel">
+                        <div class="panel-body">
+                            외 할머니가 키우시는 강아지가 있는데 그 강아지가 좀 많이 활발해요. 집에 있으면 게속 돌아다니고 문 닫혀있으면 게속 열려고 막 쿵쿵대고 긁어대요. 그래서
+                            할머니께서 강아지 울타리를
+                            사서 그 안에 강아지를 가뒀어요. 가두고 나니 게속 할머니한테 열어달라고 짖고, 게속 낑낑 거리고, 게속 한 바퀴 돌아요. 너무 걱정되고.. 열어주면 너무
+                            정신 사납고.. 어떻게 해야
+                            할까요..?? 강아지가 너무 불쌍해요..
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 두번째 아이템 -->
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <a id="astyle" role="button" data-toggle="collapse" data-parent="#accParent"
+                            data-target="#accEx2" aria-constrols="addEx2">
+                            애견동반 카페 추천!
+                        </a>
+                    </div>
+                    <div class="panel-heading" role="tab">
+                        <a role="button" data-toggle="collapse" data-parent="#accParent" href="#accEx2"
+                            aria-constrols="addEx2">
+                            <div style="display: inline-block;" class="writer"><i style="margin-right: 3px;"
+                                    class="bi bi-person"></i>내이른갈비</div>
+                            <div style="display: inline-block;" class="date">2023-11-17</div>
+                        </a>
+                    </div>
+                    <div id="accEx2" class="panel-collapse collapse" role="tabpanel">
+                        <div class="panel-body">
+                            파주 쪽 강아지랑 같이 갈 잔디넓은 카페 추천해주세요!!
+                        </div>
+                    </div>
+                </div>
+                <!-- 세번째 아이템 -->
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <a id="astyle" role="button" data-toggle="collapse" data-parent="#accParent" href="#accEx3"
+                            aria-constrols="addEx3">
+                            애기들 미용 가격
+                        </a>
+                    </div>
+                    <div class="panel-heading" role="tab">
+                        <a role="button" data-toggle="collapse" data-parent="#accParent" href="#accEx3"
+                            aria-constrols="addEx3">
+                            <div style="display: inline-block;" class="writer"><i style="margin-right: 3px;"
+                                    class="bi bi-person"></i>마루는강아지</div>
+                            <div style="display: inline-block;" class="date">2023-07-07</div>
+                        </a>
+                    </div>
+                    <div id="accEx3" class="panel-collapse collapse" role="tabpanel">
+                        <div class="panel-body">
+                            강쥐들 미용 가격 보통 얼마임?
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 네번째 아이템 -->
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <a id="astyle" role="button" data-toggle="collapse" data-parent="#accParent"
+                            data-target="#accEx4" aria-constrols="addEx4">
+                            뭐하지
+                        </a>
+                    </div>
+                    <div class="panel-heading" role="tab">
+                        <a role="button" data-toggle="collapse" data-parent="#accParent" href="#accEx4"
+                            aria-constrols="addEx4">
+                            <div style="display: inline-block;" class="writer"><i style="margin-right: 3px;"
+                                    class="bi bi-person"></i>블랙핑크</div>
+                            <div style="display: inline-block;" class="date">2023-11-06</div>
+                        </a>
+                    </div>
+                    <div id="accEx4" class="panel-collapse collapse" role="tabpanel">
+                        <div class="panel-body">
+                            data-target="#accEx2" 예시입니다.
+                        </div>
+                    </div>
+                </div>
+                <!-- 다섯번째 아이템 -->
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <a id="astyle" role="button" data-toggle="collapse" data-parent="#accParent" href="#accEx5"
+                            aria-constrols="addEx5">
+                            첫번째 예시) 여기를 클릭해 주세요.
+                        </a>
+                    </div>
+                    <div class="panel-heading" role="tab">
+                        <a role="button" data-toggle="collapse" data-parent="#accParent" href="#accEx5"
+                            aria-constrols="addEx5">
+                            <div style="display: inline-block;" class="writer"><i style="margin-right: 3px;"
+                                    class="bi bi-person"></i>글쓴이</div>
+                            <div style="display: inline-block;" class="date">2023-11-01</div>
+                        </a>
+                    </div>
+                    <div id="accEx5" class="panel-collapse collapse" role="tabpanel">
+                        <div class="panel-body">
+                            href="#accEx1" 예시 입니다.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 여섯번째 아이템 -->
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <a id="astyle" role="button" data-toggle="collapse" data-parent="#accParent"
+                            data-target="#accEx6" aria-constrols="addEx6">
+                            두번째 예시) 여기를 클릭해 주세요.
+                        </a>
+                    </div>
+                    <div class="panel-heading" role="tab">
+                        <a role="button" data-toggle="collapse" data-parent="#accParent" href="#accEx6"
+                            aria-constrols="addEx6">
+                            <div style="display: inline-block;" class="writer"><i style="margin-right: 3px;"
+                                    class="bi bi-person"></i>글쓴이</div>
+                            <div style="display: inline-block;" class="date">2023-11-01</div>
+                        </a>
+                    </div>
+                    <div id="accEx6" class="panel-collapse collapse" role="tabpanel">
+                        <div class="panel-body">
+                            data-target="#accEx2" 예시입니다.
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- id=accParent -->
+        </div>
+
+        <!-- 페이지 -->
+        <div class="board_page pageNumber">
+            <a href="#" class="first"><i class="bi bi-chevron-double-left"></i></a>
+            <a href="#" class="prev"><i class="bi bi-chevron-left"></i></a>
+            <a href="#" class="num on" data-page="1" id="pageNum1">1</a>
+            <a href="#" class="num" data-page="2" id="pageNum2">2</a>
+            <a href="#" class="num" data-page="3" id="pageNum3">3</a>
+            <a href="#" class="num" data-page="4" id="pageNum4">4</a>
+            <a href="#" class="num" data-page="5" id="pageNum5">5</a>
+            <a href="#" class="next"><i class="bi bi-chevron-right"></i></a>
+            <a href="#" class="last"><i class="bi bi-chevron-double-right"></i></i></a>
+        </div>
+    </div>
+    </div>
+    <script>
+        // 페이지 번호를 감지하는 함수
+        function handlePageClick(event) {
+            // 이벤트가 발생한 a 태그의 기본 동작을 막습니다.
+            event.preventDefault();
+
+            // 클릭된 페이지 번호를 가져옵니다.
+            const clickedPage = event.target.dataset.page;
+
+            const defaultPageNum = document.getElementsByClassName('on');
+
+            // HTMLCollection이므로 인덱스로 개별 요소에 접근
+            for (let i = 0; i < defaultPageNum.length; i++) {
+                defaultPageNum[i].classList.remove('on');
+            }
+
+            const pageNum = document.getElementById(`pageNum${clickedPage}`);
+            pageNum.classList.add('on');
+            console.log(pageNum);
+
+            getPosts(pageNum.innerText);
+        }
+        // 모든 페이지 번호를 가진 a 태그에 클릭 이벤트 리스너를 추가합니다.
+        const pageLinks = document.querySelectorAll('.pageNumber');
+        pageLinks.forEach(link => {
+            link.addEventListener('click', handlePageClick);
+        });
+    </script>
+
+
+    <footer>
+        <ul>
+            <li>회사소개</li>
+            <li>이용약관</li>
+            <li>정보처리방침</li>
+            <li>이용안내</li>
+            <li>상품광고 소개</li>
+            <li>고객의 소리</li>
+        </ul>
+        <p>COMPANY : (주)마이펫
+        </p>
+        <p>Tel. 070-1234-1521 ㅣ mypet@gmail.com</p>
+        <p>address : 서울특별시 마포구 도화2길 53</p>
+        <p>&copy; 2023 Your Website. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
