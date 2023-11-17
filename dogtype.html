@@ -9,6 +9,7 @@
       type="text/css"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css"
     />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="css/dogtype.css" />
     <script type="module" src="/components/navbar.js"></script>
@@ -27,12 +28,16 @@
     <script>
       temp();
     </script>
+    <style>
+      
+    </style>
   </head>
   <body>
+
     <nav-bar></nav-bar>
 
     <div class="searchFab">
-      <i data-feather="search"></i>
+      <i data-feather="search" class="fa fa-search"></i>
     </div>
 
     <!-- <div class="search">
@@ -53,19 +58,39 @@
     </div>
 
     <div class="container">
-      
         <div class="explainText">
-          <div class="character">
-            <h2>성격</h2>
-            <p>
-              오래된 견종이라 유전병에 대한 걱정이 상대적으로 적어요
+          
+          <div class="history">
+            <h2>역사</h2>
+            <p id="explainHistory">
+              말티즈는 지중해 섬 ‘몰타’에서 유래한 견종이라고 알려져 있어요. 
+              ‘몰타’에서 이름을 따와 ‘말티즈’라는 이름을 갖게 되었다고 합니다.
+              말티즈는 과거부터 현재까지 많은 사랑을 받은 견종이에요. 
+              그리스 로마 시대부터 르네상스 시대까지 다양한 곳에 등장하는 역사가 깊은 견종입니다.
             </p>
           </div>
 
-          <div class="habit">
-            <h2>습관</h2>
-            <p>
-              가족 구성원 중 한사람만 좋아하는 편애가 심한 편이에요
+          <div class="feature">
+            <h2>특징</h2>
+            <p id="explainFeature">
+              말티즈 성견의 이상적인 체중은 2.5kg 전후로 크기는 25cm 정도입니다.      3~4kg의 말티즈도 많이 있지만, 비만은 슬개골 탈구등의 질병의 원인이 되므로 운동과 식사의 균형에 각별히 신경을 써줘야 해요.말티즈의 가장 큰 특징은 바닥까지 늘어지는 긴 순백의 ​​실크 같은 털이에요. 그리고 말티즈는 속털이 없는 단일모를 가진 것이 특징인데요. 그래서 계절에 따라 털갈이를 하지 않으며 털빠짐도 거의 없습니다.
+            </p>
+          </div>
+        </div>
+        <div class="explainText">
+          <div class="Character">
+            <h2>성격</h2>
+            <p id="explainCharacter">
+              사람을 좋아하고 애정표현에 능숙하며 사회성이 뛰어나요. 지능이 높아서 훈련을 빠르게 이해하고 습득할 수 있으며, 밝고 활발한 성격을 가지고 있어서 함께 놀이를 하는 것으로 좋아합니다. 좁은 공간과 실내에서의 적응력이 높아서 도시 생활에 적합하고, 보호자 이외의 사람들 및 다양한 동물들과 잘 어울리며, 똑똑하고 적극적인 성격으로 즐거운 훈련이 가능해요.
+            </p>
+          </div>
+
+          <div class="caution">
+            <h2>주의해야 할 질병</h2>
+            <p id="explainCaution">
+              말티즈는 건강한 편이며 평균 수명은 12~15년 정도입니다. 단, 몇 가지 조심해야하는 질병이 있습니다. 대표적으로는 안과 질환, 기관지 질환, 관절 질환 등이 있습니다.
+              특히, 눈물이 흐르는 관인 눈물관이 막혀 눈물이 밖으로 넘치게 되는 유루증이 자주 나타납니다. 그래서 눈곱이 잘 끼고 눈 주위 털이 뭉치며, 붉은색 눈물 자국도 생기기 쉬워요. 그래서 눈 주변을 자주 닦아주는 게 좋습니다.
+              또한, 소형견에게 발병률이 매우 높은 슬개골 탈구에 주의가 필요해요.
             </p>
           </div>
         </div>
@@ -112,21 +137,21 @@
           </div>
           <div class="fit fitNot2" onclick="showExplain(event)">
             <img
-              src="https://images.mypetlife.co.kr/content/uploads/2022/12/07161728/AdobeStock_212879665-1024x670.jpeg"
+              src="https://i.namu.wiki/i/105ONbNHw-U5ORSbWzgoFPX4hvuEWTIAAVsHKzoaRqu0u3nJyEbjVooGNAqL8WahfvBWyYIvJpVZsR21CiGcYb-09arUEikE4eJZYIl5oYyG1pZC7B_Wy0tcCs8WKeufzUUIPVeIo0zVmm5jTs6XYg.webp"
             />
             <p class="fitNotName2">말티즈</p>
           </div>
           <div class="fit fitNot3" onclick="showExplain(event)">
             <img
-              src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmekUd%2FbtrSDFbbA8R%2Fq3a2LlPKIsEPlZOPsirK31%2Fimg.png"
+              src="https://post-phinf.pstatic.net/MjAyMDA4MjlfNSAg/MDAxNTk4NjYwNzk5Mjk4.YALfjBqJ4ONxspvfSwE9i7Sz-u3VRvcijQNWS8gVFlEg.ABCsePzZ2pBvTwJ02TtkvI_bRzjJJO3bVvC3tSiuok4g.JPEG/IMG_3393.JPG?type=w800_q75"
             />
-            <p class="fitNotName3">시츄</p>
+            <p class="fitNotName3">닥스훈트</p>
           </div>
           <div class="fit fitNot4" onclick="showExplain(event)">
             <img
-              src="https://img.famtimes.co.kr/resources/2019/02/15/yE5YxHsTC4HAblpe.jpg"
+              src="https://videohive.img.customer.envatousercontent.com/files/189439562/preview.jpg?auto=compress%2Cformat&fit=crop&crop=top&max-h=8000&max-w=590&s=8294e49ad1f9af148a043c170e9dbd38"
             />
-            <p class="fitNotName4">치와와</p>
+            <p class="fitNotName4">시베리안 허스키</p>
           </div>
         </div>
       </div>

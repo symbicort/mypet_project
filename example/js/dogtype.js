@@ -105,7 +105,7 @@ function inputPetData() {
                     petBreed: '말티즈',
                     content1: '오래된 견종이라 유전병에 대한 걱정이 상대적으로 적어요',
                     content2: '가족 구성원 중 한사람만 좋아하는 편애가 심한 편이에요',
-                    image: 'https://images.mypetlife.co.kr/content/uploads/2022/12/07161728/AdobeStock_212879665-1024x670.jpeg', 
+                    image: 'https://i.namu.wiki/i/105ONbNHw-U5ORSbWzgoFPX4hvuEWTIAAVsHKzoaRqu0u3nJyEbjVooGNAqL8WahfvBWyYIvJpVZsR21CiGcYb-09arUEikE4eJZYIl5oYyG1pZC7B_Wy0tcCs8WKeufzUUIPVeIo0zVmm5jTs6XYg.webp', 
                 };
                 const inputDataBeagle = {
                     petBreed: '비글',
@@ -138,6 +138,20 @@ function inputPetData() {
                     image: 'https://img.freepik.com/free-photo/view-of-cute-dog-enjoying-time-in-nature-at-the-park_23-2150407400.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1699315200&semt=sph', 
                 };
 
+                const inputDataDachshund= {
+                    petBreed: '닥스훈트',
+                    content1: '천성이 우호적이며 침착하고 신경질적이거나 공격적이지 않으며 대담하고 영리해요',
+                    content2: '짜리몽땅한 다리와 긴 허리가 특징이고, 사냥개의 기질이 남아 있어요',
+                    image: 'https://previews.123rf.com/images/belchonock/belchonock1408/belchonock140802198/30596475-%EB%85%B9%EC%83%89-%EC%B9%B4%ED%8E%AB%EC%97%90-%EA%B7%80%EC%97%AC%EC%9A%B4-%EB%8B%A5%EC%8A%A4-%ED%9B%88%ED%8A%B8-%EA%B0%95%EC%95%84%EC%A7%80.jpg', 
+                };
+
+                const inputDatahusky= {
+                    petBreed: '시베리안 허스키',
+                    content1: '늑대와 닮은 모습에 공격적이고 사나울 것 같지만 외모와는 달리 아주 온순하고 사람을 잘 따르며 짖습니다.',
+                    content2: '추운 지방 출신으로 더위에 약하며, 털이 빼곡하여 털을 잘 말려주지 않으면 피부 통풍이 되지 않아 피부병에 걸릴 수 있어요',
+                    image: 'https://upload.wikimedia.org/wikipedia/commons/c/ca/Siberian-husky.jpg', 
+                };
+
                 // 데이터 추가 (add() 메서드 사용)
                 objectStore.add(inputDataMaltese);
                 objectStore.add(inputDataBeagle);
@@ -145,6 +159,8 @@ function inputPetData() {
                 objectStore.add(inputDataChihuahua);
                 objectStore.add(inputDataYorkshireTerrier);
                 objectStore.add(inputDataPoodle);
+                objectStore.add(inputDataDachshund);
+                objectStore.add(inputDatahusky);
 
                 transaction.oncomplete = function () {
                     console.log("petData upload completed");
@@ -153,4 +169,5 @@ function inputPetData() {
         };
     };
 }
+
 

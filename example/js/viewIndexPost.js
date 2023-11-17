@@ -25,6 +25,7 @@ function getPostToIndex(){
                 recentPosts.push(cursor.value);
                 cursor.continue();
             } else {
+                console.log(recentPosts);
                 // else 절은 위에 가져온 배열 표시 하는 부분으로 지정(글이 들어가야 할 위치 보고 적용 예정)
                 const container = document.querySelector('#postIncommunity');
 

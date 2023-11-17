@@ -1,20 +1,29 @@
-
 const petData = [];
 
-function showExplain(e) {
-    //배열에서 이미지 견종명 성격설명 습관설명 받아오기 나중에 DB에서 받아오는 것으로 수정
-    //이미지를 클릭하면 상세설명 출력
-    let dogp = $(e.currentTarget).children('div');
-    for (i = 0; i < petData.length; i++) {
+
+function showExplain(event) {
+    // 클릭한 요소 가져오기
+    const clickedElement = event.currentTarget;
+
+    // 클릭한 요소의 자식 div 찾기
+    const dogp = $(clickedElement).children('p');
+    console.log(petData);
+    console.log(petData[1][1]);
+
+    // petData 배열에서 데이터 찾기
+    for (let i = 0; i < petData.length; i++) {
         if (dogp[0].innerHTML == petData[i][0]) {
             $(".explainName").text(petData[i][0]);
-            $("#mainImg").attr("src", petData[i][1]);
-            $("#explainCharacter").text(petData[i][2]);
-            $("#explainTrait").text(petData[i][3]);
+            $(".mainImg").attr("src", petData[i][1]);
+            $("#explainHistory").text(petData[i][2]);
+            $("#explainFeature").text(petData[i][3]);
+            $("#explainCharacter").text(petData[i][4]);
+            $("#explainCaution").text(petData[i][5]);
         }
     }
-
 }
+
+
 function findExplian(e) {
     //배열에서 이미지 견종명 성격설명 습관설명 받아오기 나중에 DB에서 받아오는 것으로 수정
     //검색창에서 인풋받아 상세설명 출력
@@ -22,9 +31,9 @@ function findExplian(e) {
     for(i = 0; i<petData.length; i++){
         if (keyWord == petData[i][0]) {
             $(".explainName").text(petData[i][0]);
-            $("#mainImg").attr("src", petData[i][1]);
+            $(".mainImg").attr("src", petData[i][1]);
             $("#explainCharacter").text(petData[i][2]);
-            $("#explainTrait").text(petData[i][3]);
+            $("#explainfeature").text(petData[i][3]);
             document.getElementById('search').value = "";
         } 
         
@@ -54,7 +63,20 @@ function temp(){
     const petCategoriesArray = Array.isArray(petCategories) ? petCategories : [petCategories];
 
     // petCategoriesArray에 대한 추가 로직(전개 연산자로 확장되어 저장)
-    petData.push(...petCategoriesArray.map(item => [item.petBreed, item.image, item.content1, item.content2]));
+    petData.push(...petCategoriesArray.map(item => [item.petBreed, item.image, item.history, item.feature,item.character,item.caution]));
+
+    if(sessionStorage.getItem('selectDogType'));
+        const selectDT = sessionStorage.getItem('selectDogType');
+        for (let i = 0; i < petData.length; i++) {
+            if (selectDT == petData[i][0]) {
+                $(".explainName").text(petData[i][0]);
+                $(".mainImg").attr("src", petData[i][1]);
+                $("#explainHistory").text(petData[i][2]);
+                $("#explainFeature").text(petData[i][3]);
+                $("#explainCharacter").text(petData[i][4]);
+                $("#explainCaution").text(petData[i][5]);
+            }
+        }
     };
 
     // 트랜잭션 종료

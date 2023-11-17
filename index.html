@@ -28,32 +28,10 @@
     <script src="https://unpkg.com/feather-icons"></script>
     <script>
       defineDB();
-      const object1 = [
-        {
-          id: 0,
-          title: "말티즈의 매력",
-          content:
-            "말티즈는 작고 귀여운 외모와 활발한 성격으로 유명한 견종입니다. 사랑스러운 외모 뒤에는 똑똑하고 애정 넘치는 성향을 가지고 있어 많은 가족들에게 사랑받고 있습니다.",
-          author: "개껌조아1",
-          timestamp: "2023-11-14 09:30",
-        },
-        {
-          id: 1,
-          title: "골든 리트리버의 특징",
-          content:
-            "골든 리트리버는 온순하고 친근한 성격으로 잘 알려져 있습니다. 또한 지능이 높아 훈련이 쉽고 가족들과 잘 어울리는 특성을 가지고 있습니다. 활발한 놀이와 산책을 즐기는 품종 중 하나입니다.",
-          author: "개껌조아2",
-          timestamp: "2023-11-14 10:15",
-        },
-        {
-          id: 2,
-          title: "시베리안 허스키의 멋진 외모",
-          content:
-            "시베리안 허스키는 뛰어난 울타리와 털뭉치로 유명한 견종 중 하나입니다. 남극견이라 불리며 풍부한 에너지와 우아한 외모로 많은 사랑을 받고 있습니다. 주인과의 깊은 유대감을 형성하는 특징이 있습니다.",
-          author: "개껌조아3",
-          timestamp: "2023-11-14 11:00",
-        },
-      ];
+      inputPetData();
+      inputuserData();
+      getPostToIndex();
+
     </script>
   </head>
   <body>
@@ -90,43 +68,52 @@
             ></i>
           </div>
           <div class="showDogImgages">
-            <!--이미지를 누르면 견종설명 페이지로 이동하게-->
-            <!--이것도 DB에서 받아오게 나중에 수정-->
-            <div class="dogImage">
+            <div class="dogImage" onclick="moveToDogType('요크셔테리어')">
               <img
                 src="https://thumb.photo-ac.com/50/508b85e6e79d8b8dafd12ea40b1af733_t.jpeg"
               />
-              <p class="dogName">요크셔 테리어</p>
+              <p class="dogName">요크셔테리어</p>
             </div>
-            <div class="dogImage">
+            <div class="dogImage" onclick="moveToDogType('비글')">
               <img
-                src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="https://mblogthumb-phinf.pstatic.net/MjAxOTA4MjlfNCAg/MDAxNTY3MDc5NzkxNzc5.KY9AtMKkpn4TheXmkdR2RPfjkYx_XahBlv3ZdAnl4y8g.u8pjzBsBYLRcy6tqrNEHxxJlAeQrSKQIT1CwhULHDfAg.PNG.vet6390/%EB%B9%84%EA%B8%80%EC%9D%98_%ED%8A%B9%EC%A7%95.PNG?type=w800"
               />
               <p class="dogName">비글</p>
             </div>
-            <div class="dogImage">
+            <div class="dogImage" onclick="moveToDogType('시츄');">
               <img
-                src="https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmekUd%2FbtrSDFbbA8R%2Fq3a2LlPKIsEPlZOPsirK31%2Fimg.png"
               />
               <p class="dogName">시츄</p>
             </div>
-            <div class="dogImage">
+            <div class="dogImage" onclick="moveToDogType('치와와')">
               <img
                 src="https://img.famtimes.co.kr/resources/2019/02/15/yE5YxHsTC4HAblpe.jpg"
               />
               <p class="dogName">치와와</p>
             </div>
-            <div class="dogImage">
+            <div class="dogImage" onclick="moveToDogType('푸들')">
               <img
                 src="https://img.freepik.com/free-photo/view-of-cute-dog-enjoying-time-in-nature-at-the-park_23-2150407400.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1699315200&semt=sph"
               />
               <p class="dogName">푸들</p>
             </div>
-            <div class="dogImage">
+            <div class="dogImage" onclick="moveToDogType('말티즈')">
               <img
-                src="https://images.mypetlife.co.kr/content/uploads/2022/12/07161728/AdobeStock_212879665-1024x670.jpeg"
-              />
+                src="https://i.namu.wiki/i/105ONbNHw-U5ORSbWzgoFPX4hvuEWTIAAVsHKzoaRqu0u3nJyEbjVooGNAqL8WahfvBWyYIvJpVZsR21CiGcYb-09arUEikE4eJZYIl5oYyG1pZC7B_Wy0tcCs8WKeufzUUIPVeIo0zVmm5jTs6XYg.webp"/>
               <p class="dogName">말티즈</p>
+            </div>
+            <div class="dogImage" onclick="moveToDogType('닥스훈트')">
+              <img
+                src="https://post-phinf.pstatic.net/MjAyMDA4MjlfNSAg/MDAxNTk4NjYwNzk5Mjk4.YALfjBqJ4ONxspvfSwE9i7Sz-u3VRvcijQNWS8gVFlEg.ABCsePzZ2pBvTwJ02TtkvI_bRzjJJO3bVvC3tSiuok4g.JPEG/IMG_3393.JPG?type=w800_q75"
+              />
+              <p class="dogName">닥스훈트</p>
+            </div>
+            <div class="dogImage" onclick="moveToDogType('시베리안 허스키')">
+              <img
+                src="https://videohive.img.customer.envatousercontent.com/files/189439562/preview.jpg?auto=compress%2Cformat&fit=crop&crop=top&max-h=8000&max-w=590&s=8294e49ad1f9af148a043c170e9dbd38"
+              />
+              <p class="dogName">시베리안 허스키</p>
             </div>
           </div>
           <div class="rightArrow">
@@ -202,24 +189,6 @@
     </script>
     <script>
       feather.replace();
-    </script>
-
-    <script>
-      const postContainer = document.getElementById("postContainer");
-
-      object1.forEach((postData) => {
-        const post2 = document.createElement("post-item");
-        post2.setAttribute("data-title", postData.title);
-        post2.setAttribute("data-content", postData.content);
-        post2.setAttribute("data-author", postData.author);
-        post2.setAttribute("data-timestamp", postData.timestamp);
-
-        post2.addEventListener("click", () => {
-          window.location.href = `main.html/${postData.id}`;
-        });
-
-        postContainer.appendChild(post2);
-      });
     </script>
 
   </body>
