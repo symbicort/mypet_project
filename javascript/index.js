@@ -60,4 +60,9 @@ function defineDB() {
         }).catch(function (error) {
         console.error("Error checking databases:", error);
         });
-    }
+}
+
+function moveToDogType(dogtype){
+    sessionStorage.setItem('selectDogType', String(dogtype));
+    window.location.href = 'dogtype.html';
+}
