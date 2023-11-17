@@ -12,168 +12,79 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="css/findAnimal.css" />
     <script type="module" src="/components/navbar.js" defer></script>
-    <script src="javascript/findAnimal.js" defer></script>
+    <!-- <script src="javascript/findAnimal.js" defer></script> -->
+    <script src="javascript/findAnimal3.js" defer></script>
     <script src="https://unpkg.com/feather-icons"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
     <!-- <script
       type="text/javascript"
       src="//dapi.kakao.com/v2/maps/sdk.js?appkey=80bad8c0d05b53223370f4e46bc05b7e&libraries=services"
     ></script> -->
-
-   
   </head>
   <body>
+    
+    <div class="bg-heart">
+      <div class="blur">
+      </div>
+    </div>
+
+
     <nav-bar></nav-bar>
 
     <!-- <iframe src="https://www.youtube.com/embed/Oj4oqI2S12c" frameborder="0" controls="0"></iframe> -->
-
     <!-- <div id="player"></div> -->
-
-    <!-- <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <iframe
-          height="100%"
-          src="https://www.youtube.com/embed/Oj4oqI2S12c?controls=0&autoplay=1&loop=1&mute=1"
-        >
-        </iframe>
-        </div>
-        <div class="swiper-slide">
-          <iframe
-          height="100%"
-          src="https://www.youtube.com/embed/Oj4oqI2S12c?controls=0&autoplay=1&loop=1&mute=1"
-        >
-        </iframe>
-        </div>
-        <div class="swiper-slide"> <iframe
-          height="100%"
-          src="https://www.youtube.com/embed/Oj4oqI2S12c?controls=0&autoplay=1&loop=1&mute=1"
-        >
-        </iframe>
-    </div>
-      </div>
-    </div> -->
-
     <div class="container">
-      <h1 class="pageTitle">가족 찾기</h1>
+      <h1 class="pageTitle center">가족 찾기</h1>
       <!-- <div id="map" style="width: 100%; height: 400px"></div> -->
-
       <div class="list"></div>
-    </div>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper"></div>
+        <div class="swiper-pagination"></div>
+      </div>
 
-    <!-- <script>
-      var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
 
-      var container = document.getElementById("map");
-      var options = {
-        center: new kakao.maps.LatLng(33.450701, 126.570667),
-        level: 3,
-      };
 
-      var map = new kakao.maps.Map(container, options);
+      <div id="Modal" class="modal">
+        <h2 id="modalTitle"></h2>
+        <p id="modalBreed"></p>
+        <p id="modalLocation"></p>
+        <p id="modalEnterDate"></p>
+        <p id="modalGender"></p>
+        <p id="modalAge"></p>
+        <div class="video-container">
+          <iframe id="modalVideo" src="" frameborder="0" ></iframe>
+        </div>
+        <custom-button data-type="secondary" data-label="확인" id="closeModal"></custom-button>
+      </div>
 
-      var ps = new kakao.maps.services.Places();
 
-      ps.keywordSearch("동물보호", placesSearchCB);
-
-      function placesSearchCB(data, status, pagination) {
-        if (status === kakao.maps.services.Status.OK) {
-          // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-          // LatLngBounds 객체에 좌표를 추가합니다
-          var bounds = new kakao.maps.LatLngBounds();
-
-          for (var i = 0; i < data.length; i++) {
-            displayMarker(data[i]);
-            bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
-          }
-
-          // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-          map.setBounds(bounds);
-        }
-      }
-
-      // 지도에 마커를 표시하는 함수입니다
-      function displayMarker(place) {
-        // 마커를 생성하고 지도에 표시합니다
-        var marker = new kakao.maps.Marker({
-          map: map,
-          position: new kakao.maps.LatLng(place.y, place.x),
-        });
-
-        // 마커에 클릭이벤트를 등록합니다
-        kakao.maps.event.addListener(marker, "click", function () {
-          // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-          infowindow.setContent(
-            '<div style="padding:5px;font-size:12px;">' +
-              place.place_name +
-              "</div>"
-          );
-          infowindow.open(map, marker);
-        });
-      }
-    </script> -->
-
-    <!-- <script>
-      // 2. This code loads the IFrame Player API code asynchronously.
-      var tag = document.createElement("script");
-
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName("script")[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-      // 3. This function creates an <iframe> (and YouTube player)
-      //    after the API code downloads.
-      var player;
-      function onYouTubeIframeAPIReady() {
-        player = new YT.Player("player", {
-          height: "360",
-          width: "640",
-          loading: "lazy",
-          videoId: "M7lc1UVf-VE",
-          events: {
-            onReady: onPlayerReady,
-            onStateChange: onPlayerStateChange,
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+      <script>
+        var swiper = new Swiper(".mySwiper", {
+          loop: true,
+          pagination: {
+            el: ".swiper-pagination",
+            type: "fraction",
           },
+          autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+          },
+          keyboard: {
+            enabled: true,
+          },
+          effect: "cards",
+          grabCursor: true,
         });
-      }
-
-      // 4. The API will call this function when the video player is ready.
-      function onPlayerReady(event) {
-        event.target.playVideo();
-      }
-
-      // 5. The API calls this function when the player's state changes.
-      //    The function indicates that when playing a video (state=1),
-      //    the player should play for six seconds and then stop.
-      var done = false;
-      function onPlayerStateChange(event) {
-        if (event.data == YT.PlayerState.PLAYING && !done) {
-          setTimeout(stopVideo, 6000);
-          done = true;
-        }
-      }
-      function stopVideo() {
-        player.stopVideo();
-      }
-    </script>
-
-    <script>
-      const mySwiper = new Swiper(".swiper-container", {
-        // 옵션 설정
-      });
-    </script> -->
-
-    <script>
-    
-      // const test = document.querySelectorAll('.hidden')
-      // console.log(test);
-      
-      // function openCard() {
-      //   const petInfo = document.getElementsByClassName('p.petInfo.hidden')
-      //   console.log(petInfo);
-      //   petInfo.classList.toggle("hidden");
-        // petInfo.classList.remove('hidden')
-      // }
-    </script>
+      </script>
+    </div>
   </body>
 </html>
-

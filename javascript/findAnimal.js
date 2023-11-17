@@ -106,8 +106,6 @@ function getImgData() {
   });
 }
 
-assignData();
-
 // window.onload = function () {
 //   fetch(
 //     "http://openapi.seoul.go.kr:8088/78664b614370646a38324950724644/json/TbAdpWaitAnimalView/1/999/"
@@ -127,21 +125,132 @@ function openCard(event) {
     : (moreButton.innerHTML = "더보기");
 }
 
-let currentPage = 0;
+let currentPage = 1;
 let itemsPerPage = 5;
+let isLoading = false;
 
-function showPage(page) {
-  const startIndex = page * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  petCleandata.forEach((item, index) => {
-    console.log(item);
-    petCleandata.classList.toggle(
-      "hidden",
-      index < startIndex || index >= endIndex
-    );
-  });
-  updateActiveButtonStates();
+window.addEventListener("scroll", () => {
+  if (isLoading) return;
+
+  const scrollHeight = document.documentElement.scrollHeight;
+  const scrollTop = document.documentElement.scrollTop;
+  const clientHeight = document.documentElement.clientHeight;
+
+  if (scrollTop + clientHeight >= scrollHeight - 10) {
+    currentPage++;
+    loadData();
+  }
+});
+
+function assignData() {
+  const listContainer = document.querySelector(".list");
+
+  for (let i = 0; i < itemsPerPage; i++) {
+    loadData();
+  }
 }
 
+function loadData() {
+  isLoading = true;
 
-showPage()
+  const startIdx = currentPage * itemsPerPage + 1;
+  const endIdx = startIdx + itemsPerPage - 1;
+
+  fetch(`${url}${startIdx}/${endIdx}`)
+    .then((response) => response.json())
+    .then((data) => {
+      const petData = data.TbAdpWaitAnimalView.row;
+
+
+      const listContainer = document.querySelector(".list");
+
+      petData.forEach((item, i) => {
+        const listbox = document.createElement("div");
+        listbox.classList.add("listbox");
+
+        const moreButton = document.createElement("button");
+        // moreButton.setAttribute("data-label", "더보기");
+        // moreButton.setAttribute("data-type", "primary");
+        moreButton.classList.add("more-button");
+        moreButton.setAttribute("onclick", "openCard()");
+        moreButton.innerHTML = "더보기";
+
+        const petName = document.createElement("h2");
+        petName.innerText = `${petData[i].NM}`;
+
+        const petBadge = document.createElement("div");
+        petBadge.classList.add("pet-badge");
+
+        const petAge = document.createElement("p");
+        petAge.innerText = `${petData[i].AGE}`;
+        petAge.classList.add("pet-age");
+
+        const petBreed = document.createElement("p");
+        petBreed.innerText = `${petData[i].BREEDS}`;
+        petBreed.classList.add("pet-breed");
+
+        const petInfo = document.createElement("p");
+        petInfo.innerHTML = `${petData[i].INTRCN_CN}`;
+        petInfo.classList.add("petInfo");
+        petInfo.classList.add("hidden");
+
+        const petDate = document.createElement("p");
+
+        const petVideoContainer = document.createElement("div");
+        petVideoContainer.classList.add("video-container");
+
+        const petVideo = document.createElement("iframe");
+        petVideo.setAttribute(
+          "src",
+          `https://www.youtube.com/embed/${petData[i].INTRCN_MVP_URL.slice(-11)}`
+        );
+        petVideo.setAttribute("loading", "lazy");
+        petVideo.setAttribute("width", "100%");
+        petVideo.setAttribute("height", "100%");
+
+        petVideoContainer.append(petVideo);
+
+        // const petImage = document.createElement("img");
+        // petImage.setAttribute(
+        //   "src",
+        //   `https://${petImgData.TbAdpWaitAnimalPhotoView.row[i].PHOTO_URL}`
+        // );
+        // petImage.setAttribute("loading", "lazy");
+        // petImage.setAttribute("width", "100%");
+        // petImage.setAttribute("height", "100%");
+
+        petBadge.append(petBreed, petAge);
+
+        listbox.append(
+          petBadge,
+          petName,
+          // petImage,
+          moreButton,
+          petInfo,
+          petVideoContainer
+        );
+        listContainer.append(listbox);
+      });
+
+      isLoading = false;
+    })
+    .catch((error) => {
+      console.error("Error loading data:", error);
+      isLoading = false;
+    });
+}
+
+assignData();
+
+
+
+
+
+
+
+
+
+
+
+
+
