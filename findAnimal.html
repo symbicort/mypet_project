@@ -11,161 +11,80 @@
     />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="css/findAnimal.css" />
-    <script type="module" src="/components/navbar.js"></script>
-    <script type="module" src="/components/post.js"></script>
+    <script type="module" src="/components/navbar.js" defer></script>
+    <!-- <script src="javascript/findAnimal.js" defer></script> -->
+    <script src="javascript/findAnimal3.js" defer></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <script
-      type="text/javascript"
-      src="https://code.jquery.com/jquery-3.5.0.min.js"
-    ></script>
-    <script
-      src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
-      integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c="
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"
     ></script>
-    <script src="javascript/findAnimal.js"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script
+    <!-- <script
       type="text/javascript"
       src="//dapi.kakao.com/v2/maps/sdk.js?appkey=80bad8c0d05b53223370f4e46bc05b7e&libraries=services"
-    ></script>
-
-    <script>
-      // async function getData() {
-      //   const response = await fetch("http://openapi.seoul.go.kr:8088/78664b614370646a38324950724644/json/TbAdpWaitAnimalView/1/999/");
-      //   const jsonData = await response.json();
-      //   console.log(jsonData);
-
-      // }
-
-      // getData()
-
-      const url =
-        "http://openapi.seoul.go.kr:8088/78664b614370646a38324950724644/json/TbAdpWaitAnimalView/1/999/";
-
-      const imgUrl =
-        "http://openapi.seoul.go.kr:8088/78664b614370646a38324950724644/json/TbAdpWaitAnimalPhotoView/1/999/";
-
-      async function assignData() {
-        const petData = await getData();
-        const petImgData = await getImgData();
-
-        console.log(petData.TbAdpWaitAnimalView.row);
-        console.log("이미지", petImgData.TbAdpWaitAnimalPhotoView.row);
-
-        const listContainer = document.querySelector(".list");
-
-        for (i = 0; i < petData.TbAdpWaitAnimalView.row.length; i++) {
-          const listbox = document.createElement("div");
-          listbox.classList.add("listbox");
-
-          const petName = document.createElement("h2");
-          petName.innerText = `${petData.TbAdpWaitAnimalView.row[i].NM}`;
-
-          const petAge = document.createElement("p");
-          petAge.innerText = `${petData.TbAdpWaitAnimalView.row[i].AGE}`;
-
-          const petBreed = document.createElement("p");
-          petBreed.innerText = `${petData.TbAdpWaitAnimalView.row[i].BREEDS}`;
-
-          const petInfo = document.createElement("p");
-          petInfo.innerHTML = `${petData.TbAdpWaitAnimalView.row[i].INTRCN_CN}`;
-
-          const petDate = document.createElement("p");
-
-          const petImage = document.createElement("img");
-          petImage.setAttribute('src', `https://${petImgData.TbAdpWaitAnimalPhotoView.row[i].PHOTO_URL}`)
-
-          listbox.append(petName, petAge, petBreed, petImage);
-          // listbox.appendChild(petImage)
-          listContainer.append(listbox);
-        }
-      }
-
-      function getData() {
-        return new Promise((resolve, reject) => {
-          fetch(url)
-            .then((response) => response.json())
-
-            .then((data) => {
-              resolve(data);
-            });
-        });
-      }
-
-      function getImgData() {
-        return new Promise((resolve, reject) => {
-          fetch(imgUrl)
-            .then((response) => response.json())
-
-            .then((data) => {
-              resolve(data);
-            });
-        });
-      }
-
-      assignData();
-    </script>
+    ></script> -->
   </head>
   <body>
-    <nav-bar></nav-bar>
-
-    <div class="container">
-      <h1 class="pageTitle">가족 찾기</h1>
-      <div id="map" style="width: 100%; height: 400px"></div>
-
-      <div class="list"></div>
+    
+    <div class="bg-heart">
+      <div class="blur">
+      </div>
     </div>
 
-    <script>
-      var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
 
-      var container = document.getElementById("map");
-      var options = {
-        center: new kakao.maps.LatLng(33.450701, 126.570667),
-        level: 3,
-      };
+    <nav-bar></nav-bar>
 
-      var map = new kakao.maps.Map(container, options);
+    <!-- <iframe src="https://www.youtube.com/embed/Oj4oqI2S12c" frameborder="0" controls="0"></iframe> -->
+    <!-- <div id="player"></div> -->
+    <div class="container">
+      <h1 class="pageTitle center">가족 찾기</h1>
+      <!-- <div id="map" style="width: 100%; height: 400px"></div> -->
+      <div class="list"></div>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper"></div>
+        <div class="swiper-pagination"></div>
+      </div>
 
-      var ps = new kakao.maps.services.Places();
 
-      ps.keywordSearch("동물보호", placesSearchCB);
 
-      function placesSearchCB(data, status, pagination) {
-        if (status === kakao.maps.services.Status.OK) {
-          // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-          // LatLngBounds 객체에 좌표를 추가합니다
-          var bounds = new kakao.maps.LatLngBounds();
+      <div id="Modal" class="modal">
+        <h2 id="modalTitle"></h2>
+        <p id="modalBreed"></p>
+        <p id="modalLocation"></p>
+        <p id="modalEnterDate"></p>
+        <p id="modalGender"></p>
+        <p id="modalAge"></p>
+        <div class="video-container">
+          <iframe id="modalVideo" src="" frameborder="0" ></iframe>
+        </div>
+        <custom-button data-type="secondary" data-label="확인" id="closeModal"></custom-button>
+      </div>
 
-          for (var i = 0; i < data.length; i++) {
-            displayMarker(data[i]);
-            bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
-          }
 
-          // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-          map.setBounds(bounds);
-        }
-      }
-
-      // 지도에 마커를 표시하는 함수입니다
-      function displayMarker(place) {
-        // 마커를 생성하고 지도에 표시합니다
-        var marker = new kakao.maps.Marker({
-          map: map,
-          position: new kakao.maps.LatLng(place.y, place.x),
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+      <script>
+        var swiper = new Swiper(".mySwiper", {
+          loop: true,
+          pagination: {
+            el: ".swiper-pagination",
+            type: "fraction",
+          },
+          autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+          },
+          keyboard: {
+            enabled: true,
+          },
+          effect: "cards",
+          grabCursor: true,
         });
-
-        // 마커에 클릭이벤트를 등록합니다
-        kakao.maps.event.addListener(marker, "click", function () {
-          // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-          infowindow.setContent(
-            '<div style="padding:5px;font-size:12px;">' +
-              place.place_name +
-              "</div>"
-          );
-          infowindow.open(map, marker);
-        });
-      }
-    </script>
+      </script>
+    </div>
   </body>
 </html>
