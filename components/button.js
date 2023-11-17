@@ -153,8 +153,8 @@ export class Button extends HTMLElement {
 
 
   connectedCallback() {
-    console.log(this.getAttribute('data-submit'));
-    console.log(this.dataset.submit);
+    // console.log(this.getAttribute('data-submit'));
+    // console.log(this.dataset.submit);
   }
 }
 
