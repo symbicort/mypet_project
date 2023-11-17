@@ -19,15 +19,22 @@ function addPost(){
 
     // 데이터베이스 객체 저장소(테이블) 열기
     const postsStore = transaction.objectStore('posts');
-
+      
     const nowDate = new Date();        
-    const timestamp = nowDate.toISOString();
+    const year = nowDate.getFullYear();
+    const month = String(nowDate.getMonth() + 1).padStart(2, '0');
+    const day = String(nowDate.getDate()).padStart(2, '0');
+    const hours = String(nowDate.getHours()).padStart(2, '0');
+    const minutes = String(nowDate.getMinutes()).padStart(2, '0');
+    const seconds = String(nowDate.getSeconds()).padStart(2, '0');
+
+    const timestamp = `${year}.${month}.${day} ${hours}:${minutes}:${seconds}`;
 
     const pattern = /\s/;
 
-    if(pattern.test(title) || title.length < 3){
+    if(title.length < 3){
         alert('제목에 공백이 기입되어 있거나 3자 이하인지 확인해주세요.')
-    } else if(pattern.test(content) || content.length < 5){
+    } else if(content.length < 5){
         alert('내용에 공백이 기입되어 있거나 5자 이하인지 확인해주세요.')
     } else {
         // 추가할 데이터

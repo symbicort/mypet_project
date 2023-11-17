@@ -45,7 +45,7 @@ function signIn() {
                     alert('닉네임을 5자 이상 20자 이하로 입력해주세요.\n(공백 입력 불가)');
                 } else if (!emailRegex.test(email)) {
                     alert('올바른 이메일 형식을 입력해주세요.\n(공백 사용 불가)');
-                } else if (pattern.test(phNum) || phNum == "" || phNum.length != 13) {
+                } else if (pattern.test(phNum) || phNum == "" || (phNum.length != 13 && phNum.length != 11)) {
                     alert('올바른 전화번호 형식을 입력해주세요.\n(공백, "-" 입력 X)');
                 } else if (pattern.test(pw) || pw == "" || pw.length < 8) {
                     alert('비밀번호 입력 칸에 공백이 기입되어 있진 않은지 확인해주세요\n(공백 입력 불가)');

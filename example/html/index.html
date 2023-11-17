@@ -7,6 +7,14 @@
     <script src="../js/makeDB.js"></script>
     <script src="../js/isLogin.js"></script>
     <script src="../js/inputData.js"></script>
+    <script src="../js/viewIndexPost.js"></script>
+    <script src="../js/dogtype.js"></script>
+    <style>
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
     <script>
         // 버튼 클릭 시 실행될 함수 정의
         function moveToSignIn() {        
@@ -39,7 +47,50 @@
     <hr>
     <button onclick="moveToCommutity()">게시판으로 이동</button>
     <button onclick="inputPetData()">펫 카테고리 정보 DB에 input</button>
-    
-
+    <br><hr>
+    <script>
+        getPostToIndex();
+    </script>
+    <div class="showDogImgages">
+        <!--이미지를 누르면 견종설명 페이지로 이동하게-->
+        <!--이것도 DB에서 받아오게 나중에 수정-->
+        <div class="dogImage" onclick="moveToDogType('요크셔테리어')">
+            <img
+                src="https://thumb.photo-ac.com/50/508b85e6e79d8b8dafd12ea40b1af733_t.jpeg"
+            />
+                <p class="dogName">요크셔 테리어</p>
+            </div>
+            <div class="dogImage"  onclick="moveToDogType('비글')">
+            <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
+                <p class="dogName">비글</p>
+            </div>
+            <div class="dogImage"  onclick="moveToDogType('시츄')">
+                <img
+                src="https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
+                <p class="dogName">시츄</p>
+            </div>
+            <div class="dogImage" onclick="moveToDogType('치와와')">
+                <img
+                src="https://img.famtimes.co.kr/resources/2019/02/15/yE5YxHsTC4HAblpe.jpg"/>
+                <p class="dogName">치와와</p>
+            </div>
+            <div class="dogImage"  onclick="moveToDogType('푸들')">
+                <img
+                src="https://img.freepik.com/free-photo/view-of-cute-dog-enjoying-time-in-nature-at-the-park_23-2150407400.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1699315200&semt=sph"/>
+                <p class="dogName">푸들</p>
+            </div>
+            <div class="dogImage"  onclick="moveToDogType('말티즈')">
+                <img
+                src="https://images.mypetlife.co.kr/content/uploads/2022/12/07161728/AdobeStock_212879665-1024x670.jpeg"/>
+                <p class="dogName">말티즈</p>
+        </div>
+      </div>
+    <br><hr>
+    <div id="postIncommunity">
+    <div class="post1"></div>
+    <div class="post2"></div>
+    <div class="post3"></div>
+    <div class="post4"></div>
+    </div>
 </body>
 </html>
