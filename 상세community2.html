@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마이펫 - 커뮤니티</title>
+
+    <!-- 아코디언 CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- 아이콘용 cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css" />
+    <link rel="stylesheet" href="/css/상세community.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/css/footer.css">
+    <script src="/javascript/상세2community.js" defer></script>
+
+    <script type="module" src="/components/navbar.js"></script>
+    <script type="module" src="/components/post2.js"></script>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
+        integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
+    <script src="javascript/index.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        sessionStorage.setItem('currentPageNum', '1');
+        getPosts(sessionStorage.getItem('currentPageNum'));
+    </script>
+</head>
+
+<body>
+    <nav-bar></nav-bar>
+    <!--보조헤더-->
+    <div class="contentHeader">
+        <a href="#">전체</a>
+        <a href="#">HOT</a>
+        <a href="#">톡톡</a>
+        <a href="#">QnA</a>
+    </div>
+    <div class="image-box">
+        <img class="thumnail" src="/example/Concept for _Dogs_.jpg" style="border-radius: 0; max-width: 1000px;">
+    </div>
+
+    <div class="board_view">
+        <header class="board-title holder">
+            <p style="color: black;">시고르시바종 분양하실 분</p>
+        </header>
+        <div class="blogHead">
+            <i style="width: 50px;"><img src="/example/user_icon_149336.png"
+                    style="width: 42px; margin-top: 13px; background-color: #f2f0de;"></i>
+            <div class="board_block">
+                <div class="writer">
+                    <span style="font-size: 15px;">햇살가득맘치킨</span>
+                </div>
+                <div class="category_wrap">
+                    <div onclick="hot()" class="board_category">hot</div>
+                    <div class="write_date">
+                    2023-10-28<br>
+                    </div>
+                    <span class="eye"><i class="bi bi-eye"></i>조회수 6211</span>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <p>시바인데 시고르자브종 닮은 아이 분양하실 분<br>
+                저희 집 막내가 새끼를 낳아서 분양합니다.<br>
+                <br>
+                <img id="image1" src="/example/79a4e843-eb88-461b-952a-5954c3c70bf4.jpg" style="width: 400px; height: auto; border-radius: 0;">
+            </p><br>
+        </div>
+
+        <!-- 댓글 목록 -->
+        <div id="commentList2" class="comment_list">
+        </div>
+
+        <!-- 댓글 입력 창 -->
+        <div class="commentBox">
+                <input type="text" style="border: 1px solid #E5E7EB; padding: 7px; outline: none; " id="authorInput" placeholder="닉네임"></input>
+                <input style="border: 1px solid #E5E7EB;padding: 7px; outline: none; " type="password" id="passwordInput" placeholder="비밀번호"></input>
+        </div>
+        <div class="commentBox box2">
+            <textarea placeholder="댓글을 입력하세요..." name="comment" id="commentInput" cols="" rows="1" style="overflow: hidden; overflow-wrap: break-word; width: 1000px; height: 80px; resize: none; outline: none; padding: 10px;"></textarea>
+            <div style="text-align: right;">
+                <button style="border: none; background-color: #0ea5e9; color: white; padding: 10px 30px; border-radius: 5px;" onclick="addComment()"> 작성</button>
+            </div>
+        </div>
+        <button onclick="listbutton()" type="button" style="background-color: #f0f9ff; border: none; border-radius: 10px; color: #0ea5e9; padding: 10px; ">뒤로가기</button>
+    </div>
+
+
+
+    <!--<footer>
+        <ul>
+            <li>회사소개</li>
+            <li>이용약관</li>
+            <li>정보처리방침</li>
+            <li>이용안내</li>
+            <li>상품광고 소개</li>
+            <li>고객의 소리</li>
+        </ul>
+        <div class="footer_foot">
+            <div class="left">
+                <div>Company : (주)마이펫
+                </div>
+                <div>&copy; 2023 Your Website. All rights reserved.</div>
+            </div>
+            <div class="right">
+                <div>Tel. 070-1234-1521 ㅣ mypet@gmail.com</div>
+                <div>address : 서울특별시 마포구 도화2길 53</div>
+            </div>
+
+        </div>
+    </footer>-->
+</body>
+
+</html>

@@ -3,8 +3,6 @@
   height: 100%;
   position: absolute;
   background-color: rgba(255, 255, 255, 0.61);
-  backdrop-filter: blur(20px);
-  filter: blur(20px);
 
 }
 
@@ -31,6 +29,9 @@
 
 h2 {
   margin-bottom: 12px;
+  font-family: 'Dongle', sans-serif;
+  line-height: 1;
+  font-size: 4rem;
 }
 
 img {
@@ -40,6 +41,7 @@ img {
 
 
 .video-container {
+  margin: 24px 0;
   position: relative;
   width: 100%;
   padding-bottom: 56.25%;
@@ -121,17 +123,26 @@ iframe {
 
 
 
-.container {
-  overflow: hidden;
+.mycontainer {
+  overflow: visible;
   padding-bottom: 60px;
   margin: 0 auto;
   margin-top: 120px;
 }
 
+.pageTitle {
+  margin: 0 !important;
+  color: #0ea5e9;
+  font-family: 'Dongle', sans-serif;
+  line-height: 1;
+  font-size: 4rem;
+}
+
 
 .swiper {
-  width: 240px;
-  height: 320px;
+  width: 40vh;
+  height: 60vh;
+  overflow: visible;
 }
 
 
@@ -144,14 +155,19 @@ iframe {
   font-weight: bold;
   background-color: #fff;
   box-shadow: 0 5px 10px var(--color-gray-200);
+  overflow: visible;
 }
 
 .swiper-slide img {
+  position: absolute;
   width: 90%;
   height: 70%;
   object-fit: cover;
   margin: 0;
-  transform: translate(10px, 10px);
+  /* transform: translate(10px, 10px); */
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 20px);
 }
 
 #my-swiper .swiper-pagination {
@@ -159,7 +175,7 @@ iframe {
   transform: translate(0px, 300px);
 }
 
-body > div.container > div.swiper.mySwiper.swiper-cards.swiper-3d.swiper-initialized.swiper-horizontal.swiper-watch-progress > div.swiper-pagination.swiper-pagination-fraction.swiper-pagination-horizontal {
+body > div.mycontainer > div.swiper.mySwiper.swiper-cards.swiper-3d.swiper-initialized.swiper-horizontal.swiper-watch-progress > div.swiper-pagination.swiper-pagination-fraction.swiper-pagination-horizontal {
   color: var(--color-gray-400);
   transform: translate(0, 60px);
   font-family: 'Pretendard Variable', sans-serif;
@@ -167,19 +183,26 @@ body > div.container > div.swiper.mySwiper.swiper-cards.swiper-3d.swiper-initial
 
 
 .swiper-slide custom-button {
-  width: 80px;
+  width: 90px;
+  display: flex;
+  flex-grow: 1;
 }
 
 .swiper-slide .contents {
   display: flex;
-  margin: 16px;
+  /* margin: 16px; */
+  padding: 24px;
   align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .swiper-slide .text {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  flex-grow: 6;
   gap: 4px;
 }
 
@@ -195,7 +218,7 @@ body > div.container > div.swiper.mySwiper.swiper-cards.swiper-3d.swiper-initial
 
 .swiper-slide .location {
   position: absolute;
-  top: -20px;
+  top: -40px;
   left: 50%;
   transform: translate(-50%);
   font-size: 14px;
@@ -215,33 +238,97 @@ body > div.container > div.swiper.mySwiper.swiper-cards.swiper-3d.swiper-initial
 
 .modal {
   display: none;
+  gap: 12px;
   flex-direction: column;
   justify-content: center;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90%;
-  height: fit-content;
-  max-width: 800px;
+  width: 80%;
+  height: 50%;
+  max-width: 600px;
   padding: 32px;
+  padding-top: 180px;
   background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   border-radius: 16px;
   /* opacity: 0; */
   transition: all 0.5s;
+  overflow-y: scroll;
+}
+
+.modal::-webkit-scrollbar {
+  display: none;
 }
 
 .modal custom-button {
   display: flex;
+  width: 100%;
   justify-content: center;
   text-align: center;
-  max-width: 120px;
+  /* max-width: 120px; */
+}
+
+.modal button {
+  width: 120px;
+  position: fixed;
 }
 
 
 
+.modal svg {
+  display: block;
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  width: 24px;
+  height: 24px;
+  padding: 8px;
+  color: var(--color-gray-500);
+  cursor: pointer;
+}
+
+.modal .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.modal p {
+  display: flex;
+  /* width: 100%; */
+  /* flex-grow: 1; */
+  padding: 16px 24px;
+  border: 1px solid var(--color-gray-200);
+  border-radius: 8px;
+  line-height: 18px;
+  color: var(--color-gray-400)
+}
+
+.modal strong {
+  display: flex;
+  /* flex-grow: 2; */
+  /* width: 100%; */
+  color: var(--color-gray-500);
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+
+
+@media (max-width: 480px) {
+  .modal {
+    /* padding-top: 80px; */
+    height: 70%;
+  }
+  .modal .grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 
 

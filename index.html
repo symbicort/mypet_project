@@ -10,185 +10,95 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css"
     />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/index2.css" />
+    <link rel="stylesheet" href="css/footer.css" />
     <script type="module" src="/components/navbar.js"></script>
     <script type="module" src="/components/post.js"></script>
 
-    <script
-      type="text/javascript"
-      src="https://code.jquery.com/jquery-3.5.0.min.js"
-    ></script>
-    <script
-      src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
-      integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c="
-      crossorigin="anonymous"
-    ></script>
-    <script src="javascript/index.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
-    <script>
-      defineDB();
-      inputPetData();
-      inputuserData();
 
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollToPlugin.min.js"></script>
   </head>
   <body>
     <nav-bar></nav-bar>
 
-    <div class="container">
-      <div class="findingDog">
-        <!-- 메인 이미지 -->
-        <img
-          class="findFamilly"
-          id="mainImage"
-          src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        />
-      </div>
 
-      <div class="dogLibraryLayout">
-        <!-- 견종검색 + 더보기  -->
-        <h1 class="sectionTitle">견종백과</h1>
-        <div class="dogLibrary">
-          <div class="leftArrow">
-            <!-- <img
-              class="moreIconLeft"
-              id="pressIcon"
-              onclick="makeScrollL(event)"
-              src="./example/moreIcon_L.png"
-              style="visibility: hidden"
-            /> -->
-            <i
-              data-feather="chevron-left"
-              width="24"
-              id="pressIcon"
-              onclick="makeScroll(event)"
-              style="display: none"
-            ></i>
-          </div>
-          <div class="showDogImgages">
-            <div class="dogImage" onclick="moveToDogType('요크셔테리어')">
-              <img
-                src="https://thumb.photo-ac.com/50/508b85e6e79d8b8dafd12ea40b1af733_t.jpeg"
-              />
-              <p class="dogName">요크셔테리어</p>
-            </div>
-            <div class="dogImage" onclick="moveToDogType('비글')">
-              <img
-                src="https://mblogthumb-phinf.pstatic.net/MjAxOTA4MjlfNCAg/MDAxNTY3MDc5NzkxNzc5.KY9AtMKkpn4TheXmkdR2RPfjkYx_XahBlv3ZdAnl4y8g.u8pjzBsBYLRcy6tqrNEHxxJlAeQrSKQIT1CwhULHDfAg.PNG.vet6390/%EB%B9%84%EA%B8%80%EC%9D%98_%ED%8A%B9%EC%A7%95.PNG?type=w800"
-              />
-              <p class="dogName">비글</p>
-            </div>
-            <div class="dogImage" onclick="moveToDogType('시츄');">
-              <img
-                src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmekUd%2FbtrSDFbbA8R%2Fq3a2LlPKIsEPlZOPsirK31%2Fimg.png"
-              />
-              <p class="dogName">시츄</p>
-            </div>
-            <div class="dogImage" onclick="moveToDogType('치와와')">
-              <img
-                src="https://img.famtimes.co.kr/resources/2019/02/15/yE5YxHsTC4HAblpe.jpg"
-              />
-              <p class="dogName">치와와</p>
-            </div>
-            <div class="dogImage" onclick="moveToDogType('푸들')">
-              <img
-                src="https://img.freepik.com/free-photo/view-of-cute-dog-enjoying-time-in-nature-at-the-park_23-2150407400.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1699315200&semt=sph"
-              />
-              <p class="dogName">푸들</p>
-            </div>
-            <div class="dogImage" onclick="moveToDogType('말티즈')">
-              <img
-                src="https://i.namu.wiki/i/105ONbNHw-U5ORSbWzgoFPX4hvuEWTIAAVsHKzoaRqu0u3nJyEbjVooGNAqL8WahfvBWyYIvJpVZsR21CiGcYb-09arUEikE4eJZYIl5oYyG1pZC7B_Wy0tcCs8WKeufzUUIPVeIo0zVmm5jTs6XYg.webp"/>
-              <p class="dogName">말티즈</p>
-            </div>
-            <div class="dogImage" onclick="moveToDogType('닥스훈트')">
-              <img
-                src="https://post-phinf.pstatic.net/MjAyMDA4MjlfNSAg/MDAxNTk4NjYwNzk5Mjk4.YALfjBqJ4ONxspvfSwE9i7Sz-u3VRvcijQNWS8gVFlEg.ABCsePzZ2pBvTwJ02TtkvI_bRzjJJO3bVvC3tSiuok4g.JPEG/IMG_3393.JPG?type=w800_q75"
-              />
-              <p class="dogName">닥스훈트</p>
-            </div>
-            <div class="dogImage" onclick="moveToDogType('시베리안 허스키')">
-              <img
-                src="https://videohive.img.customer.envatousercontent.com/files/189439562/preview.jpg?auto=compress%2Cformat&fit=crop&crop=top&max-h=8000&max-w=590&s=8294e49ad1f9af148a043c170e9dbd38"
-              />
-              <p class="dogName">시베리안 허스키</p>
-            </div>
-          </div>
-          <div class="rightArrow">
-            <i
-              data-feather="chevron-right"
-              width="24"
-              class="moreIcon"
-              id="pressicon"
-              onclick="makeScroll(event)"
-            ></i>
-          </div>
+    <div class="bg-container">
+      <section class="section fullwidth-image">
+        <div class="fullwidth-image__overlay"></div>
+        <div class="fullwidth-image__text">
+          <h1 class="fullwidth-image__text1">갈 곳 잃은 동물들,</h1>
+          <h1 class="fullwidth-image__text2">따뜻한 가족이 되어주세요</h1>
         </div>
-      </div>
-
-      <div class="productAdLayout">
-        <!-- 반려동물 쇼핑 정보 -->
-        <h1 class="sectionTitle">반려동물 쇼핑 정보</h1>
-        <div class="productAd">
-          <!--여기도 링크 걸기 : 쇼핑몰 링크?-->
-          <img class="productAdImg" src="assets/hyeongWuk.jpg" />
-          <div class="productAdText">
-            <h2 class="productAdTitle">프리미엄 개껌</h2>
-            <p class="productAdExplain">
-              개가 이갈이를 하면 이빨 신경에 가해지는 자극을 완화시키기 위해서
-              이것저것 물어 뜯는 경우가 많은데, 반려견을 기르는 집이라면 보통 이
-              시기에 집안의 가구나 전선 등을 물어뜯는 일이 발생할 수 있다.
-              그래서 안전하게 뭔가 물어 뜯으라며 대체품으로 주는 것이 바로 개껌.
-            </p>
-          </div>
+        <img class="fullwidth-image1" src="assets/pexels-helena-lopes-2055235.png" />
+        <img class="fullwidth-image2" src="assets/pexels-helena-lopes-2055235.jpg" />
+      </section>
+      <section class="section section2">
+        <div class="video__overlay"></div>
+        <div class="video-container">
+          
+          <video class="video" playsinline="true" webkit-playsinline="true" preload="auto" muted="muted">
+            <source src="/assets/pexels_videos_2796080 (540p).mp4" type="video/mp4" />
+          </video>
+      
         </div>
-      </div>
+        <div class="scroll-container">
+          
+          <section class="step">
+            <div class="sec2-text1">
+              <h1>각 보호소에서 보호하고 있는<br>유기 동물들을 확인하고</h1>
+            </div>
+          </section>
+          <section class="step">
+            <div class="sec2-text2">
+              <h1>마음에 드는 친구에게 연락해보세요</h1>
+            </div>
+          </section>
+          <section class="step">
+            <div class="sec2-text3">
+              <h1>지금 시작하세요!<custom-button data-type="primary" data-label="가족 찾기" onclick="findFamily()"></custom-button></h1>
+              
+            </div>
+          </section>
+        </div>
+      </section>
+<!-- 
 
-      <div class="communityLayout">
-        <h1 class="sectionTitle">커뮤니티</h1>
-        <!-- 커뮤니티 -->
-        <!--임시로 작성해둠-->
-
-        <div id="postContainer"></div>
-      </div>
+      <section class="section3">
+        <img src="/assets/photo-1545501959-d2e81c11bf5e.png" alt="">
+      </section> -->
     </div>
-    <script>
-      function makeScroll(e) {
-        let dogParent = $(e.target).parent();
-        let dogBrother = dogParent.prev();
-        let dogImgaeLast = dogBrother.children().last();
-        dogImgaeLast[0].scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-          inline: "end",
-        });
-        dogParent.children("img").attr("style", "visibility: hidden;");
-        let dogLeftArrow = dogParent.parent().children(".leftArrow");
-        dogLeftArrow.children("img").removeAttr("style");
-      }
-      function makeScrollL(e) {
-        let dogParent = $(e.target).parent();
-        let dogBrother = dogParent.next();
-        let dogImgaeFirst = dogBrother.children().first();
-        dogImgaeFirst[0].scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-          inline: "start",
-        });
-        dogParent.children("img").attr("style", "visibility: hidden;");
-        let dogRightArrow = dogParent.parent().children(".rightArrow");
-        dogRightArrow.children("img").removeAttr("style");
-      }
-      function callDogTypePage(e) {
-        let keyWord = "";
-        keyWord = $("input.secrchMain").val();
-        findExplian(e);
-      }
-    </script>
+    
+
+    
+   
+
     <script>
       feather.replace();
     </script>
 
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+    <script src="javascript/index2.js"></script>
+    <script>
+      defineDB();
+      inputPetData();
+      inputuserData();
+    </script>
+
+    <script>
+
+      function findFamily() {
+        window.location.href = "/findAnimal.html";
+
+      }
+
+    </script>
   </body>
 </html>

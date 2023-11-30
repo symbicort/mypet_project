@@ -10,6 +10,7 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css"
     />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="/css/login.css" />
     <script src="javascript/login.js"></script>
 
     <script type="module" src="/components/navbar.js"></script>
@@ -18,25 +19,31 @@
   <body>
     <nav-bar></nav-bar>
 
-    <div class="container">
-      <h1 class="pageTitle center">로그인</h1>
-      <text-field
-        data-label="이메일"
-        data-placeholder="id@email.com"
-        type="email"
-        name="email"
-        id="email"
-      ></text-field>
-      <text-field
-        type="password"
-        name="pw"
-        id="pw"
-        data-label="비밀번호"
-        data-placeholder="비밀번호를 입력하세요"
-      ></text-field>
-
-      <custom-button data-type="primary" data-label="로그인" onclick="login()" id="loginButton"></custom-button>
-
+    <div class="mycontainer">
+      <form action="submit">
+        <h1 class="pageTitle center">로그인</h1>
+        <text-field
+          data-label="이메일"
+          data-placeholder="id@email.com"
+          data-btn="email"
+          name="email"
+          id="email"
+        ></text-field>
+        <text-field
+          type="password"
+          name="pw"
+          data-btn="password"
+          id="pw"
+          data-label="비밀번호"
+          data-placeholder="비밀번호를 입력하세요"
+        ></text-field>
+        <custom-button
+          data-type="primary"
+          data-label="로그인"
+          onclick="login()"
+          id="loginButton"
+        ></custom-button>
+      </form>
     </div>
   </body>
 </html>

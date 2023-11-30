@@ -1,0 +1,25 @@
+body {
+  height: 100vh;
+}
+
+.mycontainer {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  max-width: 400px;
+}
+
+
+form text-field {
+  width: 100%;
+}
+
+form custom-button {
+  width: 100%;
+}

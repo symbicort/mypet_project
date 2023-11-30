@@ -14,13 +14,14 @@ class TextField extends HTMLElement {
   .container {
     display: flex;
     flex-direction: column;
-    max-width: 400px;
+    // max-width: 400px;
     margin: 10px auto;
   }
 
   p {
     margin-bottom: 12px;
     font-size: 14px;
+    line-height: 20px;
     color: var(--color-gray-400);
     font-weight: 600;
   }
@@ -31,6 +32,7 @@ class TextField extends HTMLElement {
     border: 1.5px solid var(--color-gray-200);
     box-sizing: border-box;
     width: 100%;
+    font-size: 16px;
   }
 
   ::-webkit-input-placeholder {
@@ -52,21 +54,45 @@ class TextField extends HTMLElement {
     const label = document.createElement("p");
     const input = document.createElement("input");
     const placeholder = document.createElement("p");
-    const titleSlot = document.createElement("slot");
+    // const titleSlot = document.createElement("slot");
 
     style.innerHTML = TextField.css;
     container.classList.add("container");
-    titleSlot.name = "titleSlot";
+    // titleSlot.name = "titleSlot";
     
-    container.append(label, input, placeholder, titleSlot)
+    container.append(label, input, placeholder)
     this.shadowRoot.append(style, container);
+
+
+    this.shadowRoot.classList
 
     label.textContent = this.getAttribute('data-label')
     input.placeholder = this.getAttribute('data-placeholder')
+    input.autocomplete = "off";
+    console.log(this.getAttribute('data-btn'));
+    input.type = this.getAttribute('data-btn')
+    input.inputMode = this.getAttribute('data-inputmd')
+    input.pattern = this.getAttribute('data-pattrn')
+
+
+    // input.setAttribute('type', `${this.getAttribute('data-btn')}`)
+    // input.type = this.getAttribute('data-btn')
+    // console.log(this.getAttribute('data-btn'));
+    // console.log(input);
+    
     
     input.addEventListener('input', (event) => {
       this.value = event.target.value;
     });
+
+
+    // <text-field
+    //     data-label="이메일"
+    //     data-placeholder="id@email.com"
+    //     type="email"
+    //     name="email"
+    //     id="email"
+    //   ></text-field>
 
     
 

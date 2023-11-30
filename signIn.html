@@ -18,11 +18,12 @@
   <body>
     <nav-bar></nav-bar>
 
-    <div class="container">
+    <div class="mycontainer">
       <h1 class="pageTitle center">회원가입</h1>
       <text-field
         data-label="이메일"
         data-placeholder="id@email.com"
+        data-btn="email"
         type="email"
         name="email"
         id="email"
@@ -30,19 +31,24 @@
       <text-field
         data-label="닉네임"
         data-placeholder="닉네임"
+        data-btn="text"
         type="text"
         name="nickname"
         id="nickname"
       ></text-field>
       <text-field
         data-label="전화번호"
-        data-placeholder="  010-0000-0000"
+        data-placeholder="01000000000"
+        data-btn="text"
+        data-inputmd="numeric"
+        data-pttrn="[0-9]+"
         type="text"
         name="phNum"
         id="phNum"
       ></text-field>
       <text-field
         type="password"
+        data-btn="password"
         name="pw"
         id="pw"
         data-label="비밀번호"
@@ -50,6 +56,7 @@
       ></text-field>
       <text-field
         type="password"
+        data-btn="password"
         name="pwcheck"
         id="pwcheck"
         data-label="비밀번호 확인"

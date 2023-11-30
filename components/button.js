@@ -5,8 +5,10 @@ export class Button extends HTMLElement {
   }
 
   button {
-    font-family: sans-serif;
-    font-weight: 700;
+    font-family: 'Pretendard Varaible', sans-serif;
+    font-size: 15px;
+    letter-spacing: -0.5px;
+    font-weight: 800;
     display: flex;
     align-items: center;
     gap: 8px;

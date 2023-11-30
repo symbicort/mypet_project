@@ -1,3 +1,31 @@
+function goToScreen() {
+    window.location.href = '상세community.html'
+}
+function goToScreen2() {
+    window.location.href = '상세community2.html'
+}
+function hot() {
+    window.location.href = '상세community.html'
+}
+function all() {
+    window.location.href = 'community.html'
+}
+
+function news() {
+    var news = document.getElementById('newsSection');
+
+    if (news) {
+        newsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+function talk() {
+    var talk = document.getElementById('talkSection');
+
+    if (talk) {
+        newsSection.scrollIntoView({ behavior: 'smooth',});
+    }
+}
+
 
 function writePost() {
     window.location.href = 'write.html'

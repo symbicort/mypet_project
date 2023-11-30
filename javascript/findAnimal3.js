@@ -37,8 +37,8 @@ fetch(imgUrl)
     console.error(error);
   });
 
-console.log(petData);
-console.log(petImage);
+// console.log(petData);
+// console.log(petImage);
 
 function groupImg(data) {
   return data.reduce((grouped, item) => {
@@ -58,7 +58,7 @@ function groupImg(data) {
 
 const imgGroup = groupImg(petImage);
 
-console.log(imgGroup);
+// console.log(imgGroup);
 
 const swiperWrapper = document.querySelector(".swiper-wrapper");
 
@@ -75,7 +75,7 @@ for (const animalNo in imgGroup) {
   }
 }
 
-console.log(firstObjects);
+// console.log(firstObjects);
 
 for (const item in firstObjects) {
   for (i = 0; i < firstObjects[item].length; i++) {
@@ -85,9 +85,11 @@ for (const item in firstObjects) {
     const match = currentPet ? currentPet.NM.match(/\(([^)]+)\)/) : null;
     const extraInfo = match ? match[1] : "";
 
+    // const location = document.querySelector('.location')
+    // location.textContent = extraInfo.replace(/-.*/, "")
+
     swiper.appendSlide(`
-      <div class="swiper-slide">
-      <p class="location">${extraInfo.replace(/-.*/, "")}</p>
+    <div class="swiper-slide">
         <img loading="lazy" src="https://${currentPhoto.PHOTO_URL}" alt="">
         <div class="contents">
           <div class="text">
@@ -99,6 +101,7 @@ for (const item in firstObjects) {
             
           <custom-button data-type="ghost" data-label="자세히"></custom-button>
         </div>
+    <p class="location">${extraInfo.replace(/-.*/, "")}</p>
       </div>
     `);
   }
@@ -142,11 +145,11 @@ function openModal(animalName, animalBreed, location) {
   }
 
   document.getElementById('modalTitle').textContent = animalName;
-  document.getElementById('modalBreed').textContent = `견종 : ${currentPet.BREEDS}`;
-  document.getElementById('modalLocation').textContent = `보호 장소 : ${location}`;
-  document.getElementById('modalEnterDate').textContent = `입소일 : ${currentPet.ENTRNC_DATE}`;
-  document.getElementById('modalGender').textContent = `성별 : ${(currentPet.SEXDSTN == 'M') ? "남" : "여"}`;
-  document.getElementById('modalAge').textContent = `나이 : ${currentPet.AGE.replace(/(\d+)\(세\) (\d+)\(개월\)/, '$1살 ')}`;
+  document.getElementById('modalBreed').innerHTML = `견종 <strong>${currentPet.BREEDS}</strong>`;
+  document.getElementById('modalLocation').innerHTML = `보호 장소 <strong>${location}</strong>`;
+  document.getElementById('modalEnterDate').innerHTML = `입소일 <strong>${currentPet.ENTRNC_DATE}</strong>`;
+  document.getElementById('modalGender').innerHTML = `성별 <strong>${(currentPet.SEXDSTN == 'M') ? "남" : "여"}</strong>`;
+  document.getElementById('modalAge').innerHTML = `나이 <strong>${currentPet.AGE.replace(/(\d+)\(세\) (\d+)\(개월\)/, '$1살 ')}</strong>`;
   document.getElementById('modalVideo').setAttribute('src', `https://youtube.com/embed/${currentPet.INTRCN_MVP_URL.slice(-11)}?controls=1&modestbranding=1&rel=0&showinfo=0&muted=1`)
 
   document.getElementById('Modal').style.display = 'flex';
@@ -189,7 +192,7 @@ function openModal(animalName, animalBreed, location) {
       openModal(animalName, animalBreed, location);
     }
 
-    if (event.target && event.target.id === "closeModal") {
+    if (event.target && event.target.classList.contains('closeModal')) {
       closeModal();
     }
   });
@@ -211,7 +214,7 @@ document.addEventListener("click", function (event) {
 
 
 var love = setInterval(function () {
-  var r_num = Math.floor(Math.random() * 500) + 1;
+  var r_num = Math.floor(Math.random() * 6000) ;
   var r_size = Math.floor(Math.random() * 45) + 10; // default 65 + 10
   var r_left = Math.floor(Math.random() * 100) + 1;
   var r_bg = Math.floor(Math.random() * 25) + 100;

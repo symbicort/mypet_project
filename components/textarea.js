@@ -14,8 +14,8 @@ class TextArea extends HTMLElement {
   .container {
     display: flex;
     flex-direction: column;
-    max-width: 400px;
     margin: 10px auto;
+    width: 100%
   }
 
   p {
@@ -31,8 +31,8 @@ class TextArea extends HTMLElement {
     border: 1.5px solid var(--color-gray-200);
     box-sizing: border-box;
     width: 100%;
-    max-width: 400px;
     font-family: 'Pretendard Variable', sans-serif;
+    font-size: 16px;
   }
 
   ::-webkit-input-placeholder {
@@ -58,9 +58,10 @@ class TextArea extends HTMLElement {
 
     style.innerHTML = TextArea.css;
     container.classList.add("container");
-    titleSlot.name = "titleSlot";
+    input.setAttribute('rows', '14')
+    input.setAttribute('cols', '30')
     
-    container.append(label, input, placeholder, titleSlot)
+    container.append(label, input, placeholder)
     this.shadowRoot.append(style, container);
 
     label.textContent = this.getAttribute('data-label')

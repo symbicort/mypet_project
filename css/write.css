@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.pageTitle {
+    margin-bottom: 30px;
+}
+.category-options {
+    display: none;
+}
+
+.write_head {
+    max-width: 850px;
+    width: 100%;
+}
+.top , .bottom {
+    display: flex;
+    gap: 20px;
+}
+.top > input {
+    border: none;
+    border-bottom: 2px solid #D1D5DB;
+    width: 200px;
+    margin-right: 10px;
+    font-size: 12px;
+    outline: none;
+}
+
+
+#inputTitle {
+    width: 100%;
+}
+
+#inputContent {
+    width: 100%;
+}
+
+
+select{
+    appearance:none;
+    background:url('/assets/chevron-down.svg') no-repeat right 16px center;
+}
+
+
+.bottom > select {
+    border: 1px solid var(--color-gray-200);
+    padding: 12px 20px;
+    padding-right: 30px;
+    border-radius: 50px;
+    color: var(--color-gray-500);
+}
+
+
+
+.bottom > select > option {
+    color: #0284c7;
+    font-size: 12px;
+    outline: none;
+}
+
+
+.bottom > input {
+    border: none;
+    border-bottom: 2px solid #D1D5DB;
+    width: 300px;
+    margin-right: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+/* 툴바 */
+.editor-toolbar {
+    background-color: var(--color-gray-100);
+    border-radius: 4px;
+    height: 40px;
+}
+.fas.fa-bold , .fas.fa-italic, .fas.fa-underline ,.fas.fa-link, fas.fa-image{
+    font-size: 10px;
+    background-color: #4B5563;
+}
+
+.editor-content > textarea{
+    width: 100%;
+    resize: none;
+    outline: none;
+    border: none;
+}

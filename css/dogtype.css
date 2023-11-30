@@ -10,7 +10,7 @@
   justify-content: center;
   align-items: center;
   position: fixed;
-  z-index: 2;
+  z-index: 3;
   box-shadow: 0px 0px  30px #00000030;
   cursor: pointer;
 }
@@ -20,9 +20,22 @@
 }
 
 
-.container {
+.mycontainer {
   overflow: hidden;
+  margin: 0 auto;
   margin-top: 0;
+  z-index: 2;
+  background-color: #fff;
+  margin-top: 100vh;
+  width: 100%;
+  max-width: none;
+
+}
+
+.contents {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 24px;
 }
 
 .search {
@@ -72,12 +85,16 @@ h1.explainName {
   box-sizing: border-box;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
+  font-family: 'Dongle', sans-serif;
+  line-height: 1;
+  font-size: 4rem;
 }
 
 .hero {
   display: flex;
   justify-content: center;
   margin-top: 77px;
+  overflow: hidden;
 }
 
 .mainImg {
@@ -86,11 +103,20 @@ h1.explainName {
   object-fit: cover;
   height: calc(100vh - 77px);
   border-radius: 0;
+  position: fixed;
+  display: block;
 }
 
 
 h2 {
-  margin: 40px 0 8px 0;
+  margin: 80px 0 8px 0;
+  font-family: 'Dongle', sans-serif;
+  line-height: 1;
+  font-size: 3rem;
+}
+
+p {
+  line-height: 1.8;
 }
 
 .section h2 {
@@ -107,12 +133,41 @@ strong.neg {
 
 .explainText {
   display: flex;
-  gap: 60px;
+  gap: 100px;
+  text-align: center;
 }
 
 .explainText > div{
-  width: 400px;
+  width: 100%;
 }
+
+
+
+
+
+
+/*# scroll */
+[data-scroll] {
+  opacity: 0.5;
+  will-change: transform, scale, opacity;
+  transform: translateY(10rem);
+  transition: all 1.5s cubic-bezier(0.15, 0.8, 0.5, 1);
+}
+
+[data-scroll = "in"] {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+[data-scroll = "out"] {
+  opacity: 0;
+}
+
+
+
+
+
 
 .fitImage {
   display: flex;
@@ -121,7 +176,6 @@ strong.neg {
   flex-wrap: wrap;
   justify-content: center;
   transition: all 0.5s;
-
 }
 
 .fitImage img {
@@ -139,6 +193,10 @@ strong.neg {
   justify-content: center;
   gap: 12px;  
   text-align: center;
+}
+
+div.fitContainer.section {
+  margin-top: 180px;
 }
 
 .fit p {

@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="/css/상세community.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="/css/footer.css">
+    <script src="/javascript/상세커뮤.js" defer></script>
 
     <script type="module" src="/components/navbar.js"></script>
     <script type="module" src="/components/post2.js"></script>
@@ -42,29 +43,59 @@
         <a href="#">톡톡</a>
         <a href="#">QnA</a>
     </div>
-    <!--커뮤니티 썸네일 이미지
     <div class="image-box">
         <img class="thumnail" src="/example/Concept for _Dogs_.jpg" style="border-radius: 0; max-width: 1000px;">
-    </div>-->
+    </div>
 
     <div class="board_view">
         <header class="board-title holder">
-            <p>강아지치킨 500계치킨</p>
+            <p style="color: black;">강아지치킨 500계치킨</p>
         </header>
-        <div class="board_summary">
-            <div>
-                <i style="width: 50px;"><img src="/example/유저아이콘.png" style="width: 42px; margin-top: 13px; background-color: #f2f0de;"></i>
-                <div class="board_right">
-                    <div>김형지</div>
-                    <div class="board_category"><a href="#">hot</a></div>
-                    <div class="date">2023-11-10</div>
-                    <div class="eye">조회수</div>
+        <div class="blogHead">
+            <i style="width: 50px;"><img src="/example/유저아이콘.png"
+                    style="width: 42px; margin-top: 13px; background-color: #f2f0de;"></i>
+            <div class="board_block">
+                <div class="writer">
+                    <span style="font-size: 15px;">김형지</span>
+                </div>
+                <div class="category_wrap">
+                    <div onclick="hot()" class="board_category">hot</div>
+                    <div class="write_date">
+                    2023-11-12<br>
+                    </div>
+                    <span class="eye"><i class="bi bi-eye"></i>조회수 2113</span>
                 </div>
             </div>
         </div>
+        <div class="content">
+            <p>우리 개린이들을 위한 치킨 만들어봤어요! <br>
+                닭가슴살이랑 국내산 황태채로 만들어서 칼로리도 낮고 건강에도 좋아여 <br> 식감이 부드러워서 전연령 아이들 모두 먹을 수 있다네요. <br>
+                안에는 폭신폭신하고 겉에는 바삭바삭해서 오백이가 넘 좋아한다는 .. <br>
+                강아지계의 보약 황태를 활용하여 튀김옷을 연상시키기 때문에 우리 아이들 기력회복 및 피로개선 <br>그리고 모질개선에 도움이 되는 착하고 맛있는 간식 만들어보세요~ <br>
+                <br>
+                <img id="image1" src="/example/강아지치킨 500계치킨.jpg" style="max-width: 400px;width: 100%; height: auto; border-radius: 0;">
+            </p><br>
+        </div>
+
+        <!-- 댓글 목록 -->
+        <div id="commentList" class="comment_list">
+        </div>
+
+        <!-- 댓글 입력 창 -->
+        <div class="commentBox">
+                <input type="text" style="border: 1px solid #E5E7EB; padding: 7px; outline: none; " id="authorInput" placeholder="닉네임"></input>
+                <input style="border: 1px solid #E5E7EB;padding: 7px; outline: none; " type="password" id="passwordInput" placeholder="비밀번호"></input>
+        </div>
+        <div class="commentBox box2">
+            <textarea placeholder="댓글을 입력하세요..." name="comment" id="commentInput" cols="" rows="1" style="overflow: hidden; overflow-wrap: break-word; width: 1000px; height: 80px; resize: none; outline: none; padding: 10px;"></textarea>
+            <div style="text-align: right;">
+                <button style="border: none; background-color: #0ea5e9; color: white; padding: 10px 30px; border-radius: 5px;" onclick="addComment()"> 작성</button>
+            </div>
+        </div>
+        <button onclick="listbutton()" type="button" style="background-color: #f0f9ff; border: none; border-radius: 10px; color: #0ea5e9; padding: 10px; ">뒤로가기</button>
+        
     </div>
 
-    
 
 
     <!--<footer>
